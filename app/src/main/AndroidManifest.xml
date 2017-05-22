@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".roundprogress.RoundProgressActivity"></activity>
+        <activity android:name=".roundprogress.RoundProgressActivity"/>
+        <activity android:name=".L4.L4">
+        </activity>
     </application>
 
 </manifest>

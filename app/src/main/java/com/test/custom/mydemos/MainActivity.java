@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.test.custom.mydemos.L4.L4;
 import com.test.custom.mydemos.roundprogress.RoundProgressActivity;
 
 import java.util.ArrayList;
@@ -30,12 +31,15 @@ public class MainActivity extends ListActivity {
                     case 0:
                         startActivity(new Intent(MainActivity.this, RoundProgressActivity.class));
                         break;
+                    case 1:
+                        startActivity(new Intent(MainActivity.this, L4.class));
+                        break;
                 }
             }
         });
 
-        demos.add("圆形进度条");
-        demos.add("图片渲染");
+        demos.add("L3-画笔基本使用_圆形进度条_画小黄人");
+        demos.add("L4-各种渲染-shader-圆形头像-");
 
 
         listView.setAdapter(new MyAdapter());
