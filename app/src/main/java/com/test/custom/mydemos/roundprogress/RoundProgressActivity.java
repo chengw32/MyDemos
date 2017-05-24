@@ -2,19 +2,24 @@ package com.test.custom.mydemos.roundprogress;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.test.custom.mydemos.BaseActivity;
 import com.test.custom.mydemos.R;
 
-public class RoundProgressActivity extends AppCompatActivity {
+public class RoundProgressActivity extends BaseActivity {
 
     int progress = 0;
 
     @Override
+    protected int setContentView() {
+        return R.layout.round_progress;
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.round_progress);
 
         final RoundProgress viewById = (RoundProgress) findViewById(R.id.pg);
         viewById.setOnClickListener(new View.OnClickListener() {
@@ -48,4 +53,6 @@ public class RoundProgressActivity extends AppCompatActivity {
         });
 
     }
+
+
 }

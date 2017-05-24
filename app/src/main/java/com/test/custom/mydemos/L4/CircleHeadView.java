@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Shader;
@@ -25,6 +26,9 @@ public class CircleHeadView extends View {
 
     private Bitmap bm ;
     private Paint mPaint ;
+    private int bmWidth ;
+    private int bmHeight ;
+    private int radius ;
 
     public CircleHeadView(Context context) {
         super(context);
@@ -36,6 +40,9 @@ public class CircleHeadView extends View {
 
         bm = ((BitmapDrawable) getResources().getDrawable(R.drawable.test)).getBitmap();
         mPaint = new Paint();
+        bmWidth = bm.getWidth();
+        bmHeight = this.bm.getHeight();
+        radius = 200 ;
 
     }
 
@@ -45,20 +52,32 @@ public class CircleHeadView extends View {
 
 //        canvas.drawColor(Color.RED);//设置画布背景
 
-        BitmapShader bms = new BitmapShader(bm, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
+        //TileMode 平铺模式（图片大小 小鱼控件大小是平铺模式） CLAMP 图像边缘像素平铺  REPEAT 图片重复显示图片 MIRROR 镜面效果（倒影效果）
+        BitmapShader bms = new BitmapShader(bm, Shader.TileMode.MIRROR, Shader.TileMode.MIRROR);
         mPaint.setShader(bms);
+        mPaint.setStrokeWidth(3);
+        mPaint.setColor(Color.WHITE);
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(50);
-        canvas.drawCircle(200,200,200,mPaint);
+        canvas.drawCircle(200,200,radius,mPaint);
         canvas.drawText("SSSSSSSSSSSWEGBWEPBQ",20,450,mPaint);
-        canvas.drawRect(20,470,480,670,mPaint);
 
-        //图片等比例缩放
-        float scale = Math.max(bm.getWidth(),bm.getHeight()) / Math.min(bm.getWidth(),bm.getHeight());
+        //矩阵
         Matrix mtx = new Matrix();
-        mtx.setScale(scale,scale);
+        //图片等比例缩放
+        if (bmWidth >= bmHeight){
+            //宽图片 高度缩到圆的 radius 数值
+
+        }else {
+            //高图片 宽度缩到 radius 数值
+//            float scalex = (float) radius*2 / (float) bmWidth ; // 宽度的缩小比例
+            float scalex = (float) 0.5 ; // 宽度的缩小比例
+             mtx.setScale(1,(float) 4.2);
+
+        }
+//        mtx.setRotate(30);
         bms.setLocalMatrix(mtx);
-        canvas.drawCircle(200,900,200,mPaint);
+        canvas.drawCircle(200,700,radius,mPaint);
 
 
     }

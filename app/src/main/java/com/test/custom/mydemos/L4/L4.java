@@ -1,15 +1,22 @@
 package com.test.custom.mydemos.L4;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.test.custom.mydemos.BaseActivity;
 import com.test.custom.mydemos.R;
 
-public class L4 extends AppCompatActivity {
+public class L4 extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_l4);
     }
+
+    @Override
+    protected int setContentView() {
+        return R.layout.activity_l4;
+    }
+
+
+
 }
