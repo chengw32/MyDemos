@@ -1,0 +1,37 @@
+圆形头像 1、画圆+ bitmapshader 2、shapeDrawable传入圆形区域 .draw（canvas）3、
+
+画笔设置抗锯齿 setAntiAlias
+
+Shader 效果类似给 paint 加了背景 如果画的是区域 则区域里面会有 shader 效果 这个效果是设置在 Paint 上的
+
+---------------
+
+BitmapShader 图片渲染 
+
+TileMode 平铺模式（图片大小 小鱼控件大小是平铺模式） CLAMP 图像边缘像素平铺  REPEAT 图片重复显示图片 MIRROR 镜面效果（倒影效果）
+
+BitmapShader 可以设置矩阵 setLocalMatrix 这个矩阵可以设置旋转角度、缩放等等
+
+----------------
+
+LinearGradient 线性渲染
+
+
+------------
+
+ShapeDrawable 
+
+ShapeDrawable 可以作为 Drawable 资源引用 比如设置成背景。ShapeDrawable 实例化的时候要传入 shape 。
+
+Shape分为 RectShape  矩阵
+          
+	RoundRectShape 圆角矩阵
+
+	OvalShape 椭圆 x，y轴一样 就是圆
+	
+	ArcShape 扇形 
+
+	PathShape 根据 Path 画区域 
+
+-----------------
+

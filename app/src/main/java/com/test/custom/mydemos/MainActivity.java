@@ -3,20 +3,36 @@ package com.test.custom.mydemos;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.test.custom.mydemos.L4.L4;
-import com.test.custom.mydemos.roundprogress.RoundProgressActivity;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends ListActivity {
+
+
+
+
+    /**
+     * 命名规范：
+     * 1 每节课都建一个文件夹 LXX (XX 是数字)
+     * 2 每节课的 activity 都是 LXX 命名  同上
+     * 3 demos 容器里面的内容 都是以 LXX- 开头,“-” 一定要加 因为要根据 “-”截取前面字符作为类名 用这个类名做跳转 所以 1 2 点命名都要一致
+     * 4 每节课的 assets 文件夹下面都有 LXX 笔记 在详情页要读取用
+     * */
+
+
+
+
+
+
 
     List<String> demos = new ArrayList();
 
@@ -27,24 +43,33 @@ public class MainActivity extends ListActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
-                    case 0:
-                        startActivity(new Intent(MainActivity.this, RoundProgressActivity.class));
-                        break;
-                    case 1:
-                        startActivity(new Intent(MainActivity.this, L4.class));
-                        break;
+
+                String s = demos.get(position);
+                int i = s.indexOf("-");
+                String substring = s.substring(0, i);
+                String act = "com.test.custom.mydemos." + substring + "." + substring ;
+                Class tt = null;
+                try {
+                    tt = Class.forName(act);
+                    startAct(tt);
+                } catch (ClassNotFoundException e) {
+                    Toast.makeText(MainActivity.this,"ClassNotFoundException-----ClassName:"+act,Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         demos.add("L3-画笔基本使用_圆形进度条_画小黄人");
         demos.add("L4-各种渲染-shader-圆形头像-BitmapShader-平铺模式-添加矩阵（矩阵旋转角度、缩放等操作）-shapeDrawable");
+        demos.add("L9-");
 
 
         listView.setAdapter(new MyAdapter());
     }
 
+    private void startAct(Class act){
+        Log.e("ClassName","-----"+act);
+        startActivity(new Intent(MainActivity.this,act));
+    }
 
     class MyAdapter extends BaseAdapter{
 

@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.roundprogress;
+package com.test.custom.mydemos.L3;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import com.test.custom.mydemos.BaseActivity;
 import com.test.custom.mydemos.R;
 
-public class RoundProgressActivity extends BaseActivity {
+public class L3 extends BaseActivity {
 
     int progress = 0;
 

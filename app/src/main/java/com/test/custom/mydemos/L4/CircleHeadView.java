@@ -7,8 +7,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -77,8 +80,14 @@ public class CircleHeadView extends View {
         }
 //        mtx.setRotate(30);
         bms.setLocalMatrix(mtx);
-        canvas.drawCircle(200,700,radius,mPaint);
+//        canvas.drawCircle(200,700,radius,mPaint);
+
+        ShapeDrawable shapeDrawable = new ShapeDrawable(new OvalShape());
+        shapeDrawable.getPaint().setShader(bms);
+        shapeDrawable.setBounds(20,500,250,700);//设置一个矩形区域 在矩形区域画
+        shapeDrawable.draw(canvas);
 
 
+        RadialGradient
     }
 }

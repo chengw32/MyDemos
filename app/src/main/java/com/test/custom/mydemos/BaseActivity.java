@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,14 +47,19 @@ public abstract class BaseActivity extends Activity {
     private void showHintDialog(){
         if (null == dl){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        dl = builder.setMessage(getAssetsTxt(getClass().getSimpleName())).create();
+            TextView tv = new TextView(this);
+            tv.setPadding(10,10,10,10);
+            tv.setTextSize(10);
+            tv.setText(getAssetsTxt(getClass().getSimpleName()));
+            builder.setView(tv);
+        dl = builder.create();
         }
         dl.show();
     }
 
     private String getAssetsTxt(String fileName){
         try {
-            InputStream is = getAssets().open(fileName);
+            InputStream is = getAssets().open(fileName+".txt");
             InputStreamReader reader = new InputStreamReader(is,"gbk");
             BufferedReader bufferedReader = new BufferedReader(reader);
             StringBuffer buffer = new StringBuffer();
