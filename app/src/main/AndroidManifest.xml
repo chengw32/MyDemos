@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".L9.L9">
         </activity>
+        <activity android:name=".L4.MirrorActivity">
+        </activity>
     </application>
 
 </manifest>

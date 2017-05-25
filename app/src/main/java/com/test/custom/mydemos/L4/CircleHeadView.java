@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -63,7 +62,7 @@ public class CircleHeadView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(50);
         canvas.drawCircle(200,200,radius,mPaint);
-        canvas.drawText("SSSSSSSSSSSWEGBWEPBQ",20,450,mPaint);
+        canvas.drawText("点击查看放大镜效果",20,450,mPaint);
 
         //矩阵
         Matrix mtx = new Matrix();
@@ -88,6 +87,7 @@ public class CircleHeadView extends View {
         shapeDrawable.draw(canvas);
 
 
-        RadialGradient
+
+
     }
 }

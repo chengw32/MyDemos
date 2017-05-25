@@ -14,12 +14,17 @@ BitmapShader 可以设置矩阵 setLocalMatrix 这个矩阵可以设置旋转角度、缩放等等
 
 ----------------
 
-LinearGradient 线性渲染
+LinearGradient 线性渲染 矩形区域颜色线性渐变 从左上到右下
 
+RadialGradient 颜色环形渐变
+
+SweepGradient 颜色弧形渐变 雷达扫描效果
+
+ComposeShader 组合渐变
 
 ------------
 
-ShapeDrawable 
+ShapeDrawable 的作用是画一个区域，里面填充 bitmapshader 或者各种上面的 gradient。 本身具备画图功能 已初始化画笔 用 ShapeDrawable  对象 .draw（canvas）就可以画图了
 
 ShapeDrawable 可以作为 Drawable 资源引用 比如设置成背景。ShapeDrawable 实例化的时候要传入 shape 。
 
@@ -34,4 +39,48 @@ Shape分为 RectShape  矩阵
 	PathShape 根据 Path 画区域 
 
 -----------------
+
+放大镜效果原理：画一层原图 bitmap 再底下， 在创建一个放大的 bitmap 。用 ShapeDrawable 画一个圆（放大镜） 放大镜设置一个区域 区域里面显示的是放大的 bitmap 。 放大镜移动的时候 放大的图片 反方向移动
+
+1、画原图： canvas.drawBitmap（） 可以不用传入 paint 如果传空系统会默认创建 Paint 对象
+
+2、放大原图： bitmap 放大: Bitmap.createScaledBitmap（bitmap,w,h,true）//放大三倍就白板 跟手机性能有关？
+
+3、ShapeDrawable 传入圆行区域设置区域大小， 将放大的 bitmap 设置到 ShapeDrawable 的画笔
+
+4、重写 onTouchEvent 移动的时候根据 x，y 坐标重新设置圆形区域的左上右下坐标
+
+5、将放大的 bitmap 的矩阵进行位移 matrix.setTranslate（）达到对应位置效果
+
+6、invalidate();
+ 
+----------------------
+
+霓虹灯
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
