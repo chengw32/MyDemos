@@ -24,8 +24,8 @@ public class L4 extends BaseActivity {
     }
 
     @Override
-    protected int setContentView() {
-        return R.layout.activity_l4;
+    protected void setContentView() {
+        setContentView(R.layout.activity_l4);
     }
 
 

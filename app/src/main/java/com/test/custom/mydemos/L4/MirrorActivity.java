@@ -10,13 +10,10 @@ public class MirrorActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        setContentView(new MirrorView(this));
-
     }
 
     @Override
-    protected int setContentView() {
-        return R.layout.activity_mirror;
+    protected void setContentView() {
+        setContentView(R.layout.activity_mirror);
     }
 }

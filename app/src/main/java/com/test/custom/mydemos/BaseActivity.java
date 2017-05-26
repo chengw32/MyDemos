@@ -25,7 +25,7 @@ public abstract class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        setContentView(setContentView());
+        setContentView();
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.base_title_layout);
         findViewById(R.id.title_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +70,6 @@ public abstract class BaseActivity extends Activity {
     }
 
 
-    protected abstract int setContentView();
+    protected abstract void setContentView();
 
 }

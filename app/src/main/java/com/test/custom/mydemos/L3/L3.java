@@ -12,8 +12,8 @@ public class L3 extends BaseActivity {
     int progress = 0;
 
     @Override
-    protected int setContentView() {
-        return R.layout.round_progress;
+    protected void setContentView() {
+        setContentView(R.layout.round_progress);
     }
 
 
