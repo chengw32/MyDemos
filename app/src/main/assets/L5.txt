@@ -1,0 +1,21 @@
+
+Xfermode （关闭硬件加速  setLayerType(View.LAYER_TYPE_SOFTWARE,null);）
+
+Xfermode 画的图形像素 可以设置到 Paint 跟 
+
+Xfermode 只有一个子类 PorterDuffXfermode 
+
+---------
+
+Xfermode 
+
+SRC_IN : 以目标图形图像大小为基准 目标图形图形有透明的区域 后面画的图形图形都会变成透明 目标图形图像不会透明的区域 则显示后面画的图形图形。如果目标图形图像为透明 则后面无论画多少图形图像都是透明的
+
+简单话说 目标图形图像的大小、透明值才会影响后面的图形图形其他因素无任何效果
+
+第一步：先画一个图形像素 。（第一步画的就是目标图形图像）
+第二步：给画笔设置 Mode paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN)); 
+第三步：画第二个图形像素 。（第三步开始画的都是源图形图像）
+
+其他测试：1、第一步先执行代码给 画笔设置 Mode 。第二步在画第一个图形图形。 接着在画图形图像 则全屏白色 估计是把画布当成目标图片？ 2、paint.setXfermode(null); mode 置空后 无效果。按正常画画。
+

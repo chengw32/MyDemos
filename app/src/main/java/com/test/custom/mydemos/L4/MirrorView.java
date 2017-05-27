@@ -44,8 +44,11 @@ public class MirrorView extends View {
         scaleBitmap = Bitmap.createScaledBitmap(scaleBitmap, scaleBitmap.getWidth() * scale, scaleBitmap.getHeight() * scale, true);
         BitmapShader bitmapShader = new BitmapShader(scaleBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
+        setLayerType(View.LAYER_TYPE_SOFTWARE,null);
+
         sd = new ShapeDrawable(new OvalShape());
         sd.getPaint().setShader(bitmapShader);
+        sd.getPaint().setAntiAlias(true);
         sd.setBounds(0,0,radius * 2,radius * 2);
 
         matrix = new Matrix();
