@@ -61,6 +61,7 @@ public class MainActivity extends ListActivity {
         demos.add("L3-画笔基本使用_圆形进度条_画小黄人");
         demos.add("L4-各种渲染-shader-圆形头像-BitmapShader-平铺模式-添加矩阵（矩阵旋转角度、缩放等操作）-shapeDrawable");
         demos.add("L5-xfermode的几种叠加模式-");
+        demos.add("L6-MaskFilter");
         demos.add("L9-");
 
 

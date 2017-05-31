@@ -45,13 +45,12 @@ public class RoundCornerImageView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
-        canvas.drawBitmap(xiaowu,00,0,paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         canvas.drawBitmap(yuanjiao,0,0,paint);
+//        canvas.drawBitmap(heiyihu,0,0,paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+        canvas.drawBitmap(xiaowu,00,0,paint);
 
 //        canvas.drawBitmap(xyjy,0,0,paint);
-////
-//        canvas.drawBitmap(heiyihu,0,0,paint);
 
     }
 }
