@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorMatrix;
 import android.graphics.EmbossMaskFilter;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -45,7 +44,6 @@ public class MaskView extends View {
         paint.setMaskFilter(new EmbossMaskFilter(new float[]{1,1,1},0.1f,50,50));
         canvas.drawRect(new Rect(50,50,500,500),paint);
 //        canvas.drawBitmap(xiaowu,null,new Rect(50,50,500,500),paint);
-        ColorMatrix
 
     }
 }

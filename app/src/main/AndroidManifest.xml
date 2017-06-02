@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".L6.L6">
         </activity>
+        <activity android:name=".L7.L7">
+        </activity>
     </application>
 
 </manifest>

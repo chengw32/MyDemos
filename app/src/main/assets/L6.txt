@@ -1,10 +1,16 @@
 
 硬件加速对那些 api 有效
 
+-----------------------
+
 MaskFilter 有两个子类 BlurMaskFilter、EmbossMaskFilter
 
 BlurMaskFilter 边框 阴影/光晕 效果
 
 new BlurMaskFilter(10, BlurMaskFilter.Blur.NORMAL）第一个参数是阴影半径，第二个是阴影样式 1、normal 边框内外都有阴影 2、SOLID 边框外部才有阴影 3、OUTER 边框外部有阴影把内部的图片清空了 3、图片内部有阴影
 
-EmbossMaskFilter 边缘浮雕效果 对纯色的图片比较有效果 类似做按钮的时候有个凸起效果 
+EmbossMaskFilter 边缘浮雕效果 对纯色的图片比较有效果 类似做按钮的时候有个凸起效果 四个参数 1 光照方向 2、环境光强度 越接近0 越暗 3、镜面放射系数 越接近零 放射越强 4、半径
+
+---------------------
+
+ColorMatrix 颜色矩阵 通过与图片相叠加使图片得到高亮、复古、黑白等效果

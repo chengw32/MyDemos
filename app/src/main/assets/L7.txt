@@ -1,0 +1,53 @@
+
+Canvas 
+
+drawXXX 各种api、
+
+------------------------
+
+Region 
+
+Region 闭合区域 要在 canvas 画出这个区域需要用到迭代器 RegionIterator 。Region 只能画矩形区域
+Region 可以通过 setPath 添加 Path ，但是同时还要传入一个 Region ，所以设置 Path 的时候默认 Path 跟 Region 是有叠加效果的而且取的交集。
+
+需要一个 Rect 对象。迭代器通过不断的画 Rect 达到画出不规则闭合区域 Region。类似微积分，通过画小的区域不断叠加。最终完成全部的区域
+
+while （regionIterator.next(rect)）{
+
+	canvas.drawRect(r.paint);
+
+}
+ 
+两个 Region 叠加：
+
+region.op(region1, Region.Op.DIFFERENCE);
+
+	DIFFERENCE 补集
+        INTERSECT(1),交集
+        UNION(2),并集
+        XOR(3),异并集
+        REVERSE_DIFFERENCE(4),反转补集
+        REPLACE(5);替换
+
+-------------------------
+http://www.bkjia.com/Androidjc/996439.html#top
+
+canvas
+
+平移 ：比如画刻度尺
+
+旋转 提供两个api ：canvas.rotate(float degrees)和 canvas.rotate(float degrees,float px , float py) 同缩放 基准点的选择。比如画闹钟刻度、表盘刻度。原理就是 画一条线 画布旋转一个角度 然后还原 画布在画一条线在还原画布 对应角度线的长度不一样。
+
+缩放 ： 有两个api ：1、scale(float sx , float sy)，以基准点（原点 0，0）来进行缩放/2、scale(float sx , float sy, float px,float py):即先将画布平移px,py，然后scale，scale结束之后再将画布平移回原基准点；应用在形状一样 大小不一样的图片中 注：每次绘制都得使用canvas.save()  和 canvas.restore()进行画布的锁定和回滚，以免除对后面绘制的影响
+
+斜拉 skew(float sx, float sy) sx / xy 都是角度的 tan值而不是角度。比如 sx = 1 = tan45  
+
+clip 裁剪画布 裁剪画布的时候 canvas.save / canvas.restore 会还原掉裁切的操作 而画布的执行上面的操作则不会还原只是坐标系还原。
+
+以上操作都可以存入栈中 
+
+canvas.save / canvas.restore （压栈/恢复栈 ）恢复特定位置的栈 canvas.restoreToCount(x).
+
+该栈的大小可以通过 canvas.getSaveCount 得到。如果想回到最原始的的坐标系 要在画布未执行任何操作的时候 save 一下。
+恢复栈是不可逆操作 回到之前的操作就不能再回来
+
