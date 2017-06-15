@@ -36,7 +36,7 @@ public class RoundCornerImageView extends View {
         paint = new Paint();
         heiyihu = BitmapFactory.decodeResource(getResources(), R.mipmap.test);
         yuanjiao = BitmapFactory.decodeResource(getResources(), R.mipmap.shade);
-        xyjy = BitmapFactory.decodeResource(getResources(), R.mipmap.xyjy6);
+        xyjy = BitmapFactory.decodeResource(getResources(), R.mipmap.xiaowu);
         xiaowu = BitmapFactory.decodeResource(getResources(), R.mipmap.xiaowu);
 
     }

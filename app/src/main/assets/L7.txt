@@ -1,11 +1,16 @@
 
+课程总结
+
+1、对 canvas 执行操作的时候 最好是执行 restore 还原操作以免影响后面的操作
+2、canvas.restore/canvas.restoreToCount 只是对画布的操作执行还原，画出来的图片不能还原。
+
 Canvas 
 
 drawXXX 各种api、
 
-------------------------
+------------ Region -----------
 
-Region 
+
 
 Region 闭合区域 要在 canvas 画出这个区域需要用到迭代器 RegionIterator 。Region 只能画矩形区域
 Region 可以通过 setPath 添加 Path ，但是同时还要传入一个 Region ，所以设置 Path 的时候默认 Path 跟 Region 是有叠加效果的而且取的交集。
@@ -29,10 +34,7 @@ region.op(region1, Region.Op.DIFFERENCE);
         REVERSE_DIFFERENCE(4),反转补集
         REPLACE(5);替换
 
--------------------------
-http://www.bkjia.com/Androidjc/996439.html#top
-
-canvas
+---------- canvas ---------------
 
 平移 ：比如画刻度尺
 
@@ -42,7 +44,7 @@ canvas
 
 斜拉 skew(float sx, float sy) sx / xy 都是角度的 tan值而不是角度。比如 sx = 1 = tan45  
 
-clip 裁剪画布 裁剪画布的时候 canvas.save / canvas.restore 会还原掉裁切的操作 而画布的执行上面的操作则不会还原只是坐标系还原。
+clip 裁剪画布 
 
 以上操作都可以存入栈中 
 
@@ -50,4 +52,13 @@ canvas.save / canvas.restore （压栈/恢复栈 ）恢复特定位置的栈 canvas.restoreToCo
 
 该栈的大小可以通过 canvas.getSaveCount 得到。如果想回到最原始的的坐标系 要在画布未执行任何操作的时候 save 一下。
 恢复栈是不可逆操作 回到之前的操作就不能再回来
+
+------------- saveLayer ---------
+
+canvas.saveLayer() 参数：矩形区域、画笔、Flags、alpha 等
+
+saveLayer 效果是相当于新建一个透明的图层 canvas 的一些位移、旋转操作会 【延续】 到这个图层。与 canvas.save 的区别是：save 是在原画布上直接画图，而 saveLayer 是新建【透明】的图层。
+
+其他测试： 如果执行 saveLayer 没有执行还原操作。 则后面的无论是 saveLayer 还是各种画都是在现在的【图层范围】内操作的。旋转画布超出范围后没效果。如果 saveLayer 后操作全部完成在执行 restore 则还原到上一部的 canvas 状态。
+
 

@@ -13,6 +13,7 @@ import android.graphics.RegionIterator;
 import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.test.custom.mydemos.R;
@@ -70,26 +71,36 @@ public class CanvasTest extends View {
 
         canvas.drawLine(0,0,canvas.getWidth(),0,mPaint);
         canvas.drawCircle(130,400,50,mPaint);
+
+
         canvas.translate(50,50);
-
         canvas.save();
-
         canvas.drawLine(0,0,canvas.getWidth(),0,mPaint);
         canvas.drawCircle(130,400,50,mPaint);
-        canvas.rotate(- 30);
 
-        canvas.save();
 
-        canvas.drawLine(0,0,canvas.getWidth(),0,mPaint);
-        canvas.drawCircle(130,400,50,mPaint);
+
+//        canvas.rotate( 30);
+//        canvas.save();
+//        canvas.drawLine(0,0,canvas.getWidth(),0,mPaint);
+//        canvas.drawCircle(130,400,50,mPaint);
 
         mPaint.setColor(Color.GRAY);
         canvas.drawCircle(130,400,30,mPaint);
 
 
-        canvas.drawLine(0,0,canvas.getWidth(),0,mPaint);
+        canvas.saveLayer(0,0,canvas.getWidth(),canvas.getHeight(),mPaint,Canvas.ALL_SAVE_FLAG);
+        canvas.drawColor(Color.RED);
+        canvas.rotate(10);
+        canvas.saveLayer(50,50,canvas.getWidth(),canvas.getHeight(),mPaint,Canvas.ALL_SAVE_FLAG);
+        canvas.drawColor(Color.GREEN);
+        canvas.drawCircle(50,50,50,mPaint);
+        canvas.rotate(-30);
+        canvas.saveLayer(50,50,canvas.getWidth(),canvas.getHeight(),mPaint,Canvas.ALL_SAVE_FLAG);
+        canvas.drawColor(Color.GRAY);
 
 
 
     }
+
 }

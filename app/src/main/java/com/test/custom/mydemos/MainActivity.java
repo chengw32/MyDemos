@@ -62,7 +62,8 @@ public class MainActivity extends ListActivity {
         demos.add("L4-各种渲染-shader-圆形头像-BitmapShader-平铺模式-添加矩阵（矩阵旋转角度、缩放等操作）-shapeDrawable");
         demos.add("L5-xfermode的几种叠加模式-");
         demos.add("L6-MaskFilter");
-        demos.add("L7-Canvas----Region ");
+        demos.add("L7-Canvas----Region 区域的叠加方式--- canvas 的平移、旋转、缩放、裁切操作----- saveLayer ---");
+        demos.add("L8-实战案例—滑动图片变色(自定义 Drawable)-搜索框动画");
         demos.add("L9-");
 
 

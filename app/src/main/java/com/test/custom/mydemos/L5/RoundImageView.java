@@ -32,7 +32,7 @@ public class RoundImageView extends View {
         super(context, attrs);
         setLayerType(View.LAYER_TYPE_SOFTWARE,null);
         mBitMapPaint = new Paint();
-        mBitMapSRC = BitmapFactory.decodeResource(getResources(), R.mipmap.xyjy6);
+        mBitMapSRC = BitmapFactory.decodeResource(getResources(), R.mipmap.xiaowu);
         mBitMapDST =BitmapFactory.decodeResource(getResources(),R.mipmap.shade);
     }
 

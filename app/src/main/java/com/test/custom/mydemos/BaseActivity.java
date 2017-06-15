@@ -69,7 +69,6 @@ public abstract class BaseActivity extends Activity {
         }
     }
 
-
     protected abstract void setContentView();
 
 }

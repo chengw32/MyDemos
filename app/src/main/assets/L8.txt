@@ -1,0 +1,41 @@
+
+--------Drawable--------
+
+Drawable 是一个可画的对象，其可以是一张位图 BitmapDrawable，也可以是一个图形 ShapeDrawable，还有可能是一个图层 LayerDrawable。我们根据画图需求创建相应的可画对象，就可以将这个 Drawable 当做一块 【画布】。但是 Drawable 不具备获取事件的能力 onTouch 等事件，只具备画图能力。 最终将这个 Drawable 作为图片资源设置到控件。
+
+扩展：ShapeDrawable，LayerDrawable。stateListDrawable，clipDrawable，animationDrawable 就是 Drawable 实现类的玩法
+
+---------------自定义 Drawable -------------------
+
+注意：有两个宽高要设置 1、Drawable 的宽高。2、画在 Drawable 上的图片的宽高
+
+先设置 Drawable 的宽高：通过重写 getIntrinsicHeight 、getIntrinsicWidth 返回 Drawable 的宽高。在onBoundsChange返回的 Rect 矩形区域就是该 Drawable 的区域 Reace（0,0，getIntrinsicWidth ，getIntrinsicHeight ）
+
+然后设置画在 Drawable 上的图片的宽高（bounds）。不然画出来的图片是没有宽高的 ：重写 onBoundsChange 。在方法里设置需要画在 Drawable 的图片的宽高。
+
+关键 api ：
+
+ getBounds(); 获取当前 Drawable 的矩阵区域。
+
+ Gravity.apply()裁切出一个 矩形区域 参数分别是：Gravity、w、h、从哪个区域裁切、裁切的结果赋值到的区域
+
+ canvas.save、canvas.restore
+
+ 设置传进去的被裁剪的图片的 bounds 即宽高。不然图片画出来没宽高。设置被裁剪的图片的宽高的时机在 onBoundsChange 
+
+ 重写 getIntrinsicHeight 、getIntrinsicWidth 设置自定义 Drawable 的宽高
+
+ Drawable 有 setLevel 。ImageView 有 setImageLevel 方法，Imageview 设置 level 会调用 Drawable 的 setLevel 。所以 Drawabl 重写 onlevelChange 不断画 Drawable 即可。
+
+setImageLevel 原来的作用是设置不同的 Level 显示不同的图片 在 xml 文件里面可以设置对应 Level 值范围对应图片资源，比如网络强度图标提示。喇叭声音提示
+
+
+
+
+
+
+
+
+
+
+
