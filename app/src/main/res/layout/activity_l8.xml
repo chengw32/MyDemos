@@ -9,8 +9,15 @@
     <com.test.custom.mydemos.L8.MyImageView
         android:id="@+id/iv_drawable"
         android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         />
+
+
+    <com.test.custom.mydemos.L8.AnimatSearchView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/iv_drawable"
+        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>
