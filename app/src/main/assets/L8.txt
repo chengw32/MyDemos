@@ -29,9 +29,9 @@ Drawable 是一个可画的对象，其可以是一张位图 BitmapDrawable，也可以是一个图形 Sha
 
 setImageLevel 原来的作用是设置不同的 Level 显示不同的图片 在 xml 文件里面可以设置对应 Level 值范围对应图片资源，比如网络强度图标提示。喇叭声音提示
 
+Math.sin((45f /180f)*Math.PI sin（45度）的值
 
-
-
+要做好来就是 只配置一个速度值 均匀完成所有变化
 
 
 

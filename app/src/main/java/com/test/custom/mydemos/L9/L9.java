@@ -7,7 +7,7 @@ import com.test.custom.mydemos.R;
 
 public class L9 extends BaseActivity {
 
-    @Override
+    @Overrid
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }

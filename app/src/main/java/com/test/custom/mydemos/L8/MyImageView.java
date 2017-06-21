@@ -79,7 +79,7 @@ public class MyImageView extends ImageView {
                 }
 
             }
-        },50);
+        },10);
     }
 
 

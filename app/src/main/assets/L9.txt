@@ -1,1 +1,17 @@
-ˮˮˮˮ
+﻿---- path -------
+
+lineTo 与 rLineTo 区别 ：带r的 是相对前面一个点的位置 不带 r的是相对原点的。
+
+path.addCircle 有个方向的参数 在 drawText 的时候可以设置画文字的方向
+
+path1.op(path1,Path.po.XXX) XXX 有几种模式：
+
+   DIFFERENCE  path1 减去 path2 后剩余的部分
+
+   REVERSE_DIFFERENCE path2减去path2剩余部分 跟上面相反
+
+   INTERSECT 保留path2跟path1公共部分 （交集）
+
+   UNION 保留path1跟path2除了交集部分
+
+   XOR 并集 保留所有
