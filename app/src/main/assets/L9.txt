@@ -1,17 +1,31 @@
-ï»¿---- path -------
+---- path -------
 
-lineTo ä¸Ž rLineTo åŒºåˆ« ï¼šå¸¦rçš„ æ˜¯ç›¸å¯¹å‰é¢ä¸€ä¸ªç‚¹çš„ä½ç½® ä¸å¸¦ rçš„æ˜¯ç›¸å¯¹åŽŸç‚¹çš„ã€‚
+lineTo Óë rLineTo Çø±ð £º´ørµÄ ÊÇÏà¶ÔÇ°ÃæÒ»¸öµãµÄÎ»ÖÃ ²»´ø rµÄÊÇÏà¶ÔÔ­µãµÄ¡£
 
-path.addCircle æœ‰ä¸ªæ–¹å‘çš„å‚æ•° åœ¨ drawText çš„æ—¶å€™å¯ä»¥è®¾ç½®ç”»æ–‡å­—çš„æ–¹å‘
+path.addCircle ÓÐ¸ö·½ÏòµÄ²ÎÊý ÔÚ drawText µÄÊ±ºò¿ÉÒÔÉèÖÃ»­ÎÄ×ÖµÄ·½Ïò
 
-path1.op(path1,Path.po.XXX) XXX æœ‰å‡ ç§æ¨¡å¼ï¼š
+path1.op(path1,Path.po.XXX) XXX ÓÐ¼¸ÖÖÄ£Ê½£º
 
-   DIFFERENCE  path1 å‡åŽ» path2 åŽå‰©ä½™çš„éƒ¨åˆ†
+   DIFFERENCE  path1 ¼õÈ¥ path2 ºóÊ£ÓàµÄ²¿·Ö
 
-   REVERSE_DIFFERENCE path2å‡åŽ»path2å‰©ä½™éƒ¨åˆ† è·Ÿä¸Šé¢ç›¸å
+   REVERSE_DIFFERENCE path2¼õÈ¥path2Ê£Óà²¿·Ö ¸úÉÏÃæÏà·´
 
-   INTERSECT ä¿ç•™path2è·Ÿpath1å…¬å…±éƒ¨åˆ† ï¼ˆäº¤é›†ï¼‰
+   INTERSECT ±£Áôpath2¸úpath1¹«¹²²¿·Ö £¨½»¼¯£©
 
-   UNION ä¿ç•™path1è·Ÿpath2é™¤äº†äº¤é›†éƒ¨åˆ†
+   UNION ±£Áôpath1¸úpath2³ýÁË½»¼¯²¿·Ö
 
-   XOR å¹¶é›† ä¿ç•™æ‰€æœ‰
+   XOR ²¢¼¯ ±£ÁôËùÓÐ
+
+------------·ÂqqÏûÏ¢ÍÏ¶¯Ïú»Ù-----------------
+
+ÖªÊ¶µã
+
+1¡¢ÀûÓÃ paint µÄ getTextBounds api »ñÈ¡ÎÄ×ÖµÄ rect È»ºó drawText µ½Õâ¸ö rect ÀïÃæ£¬ drawText µÄ x£¬y È¡ rect µÄ¿í¸ßÒ»°ë £¨Èç¹û paint ÉèÖÃTextAlign CENTER ÔòÖ»ÒªÉèÖÃ y µÄÎ»ÖÃ¾Í¿ÉÒÔÁË£©
+
+2¡¢ËÄ¸öÇÐÏßµã×ø±êµÄ¼ÆËã¡£Ëã×ø±êµÄÊ±ºò ÏÈ²»Òª¹Ü»­²¼µÄ×ø±êÏµ£¬ÒÔ×Ô¼ºµÄÔ²ÐÄÎª»ù×¼µã Ô²ÐÄÒÔ×ó¾Í¼õÒÔÓÒ¾Í¼Ó
+
+3¡¢»­±´Èû¶ûÇúÏß¡£arePath.quadTo Ç°ÃæµÄ2¸ö²ÎÊýÊÇ¿ØÖÆµãµÄ×ø±ê path Èç¹ûÊÇ³ÉÔ±±äÁ¿Òª¼ÇµÃÖØÖÃ£¬pathÒª¹Ø±ÕÕâÑù²ÅÊÇÒ»¸öÇøÓò pathÏà¹Ø api moveTo ¡¢lineTo 
+
+4¡¢Math.pow Ò»¸öÊýµÄ n ´Î·½ ¡£Math.sqrt Ò»¸öÊýµÄÆ½·½¸ù£¨¿ª¸ùºÅ£©
+
+5¡¢±¬Õ¨Ð§¹ûÊÇÍ¨¹ýdrawBitmap 

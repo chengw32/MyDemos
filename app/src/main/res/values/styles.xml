@@ -14,4 +14,5 @@
     <style name="CustomWindowTitleBackground">
         <item name="android:background">#3A99FF</item>
     </style>
+
 </resources>
