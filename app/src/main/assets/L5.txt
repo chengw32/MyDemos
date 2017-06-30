@@ -7,7 +7,10 @@ Xfermode 只有一个子类 PorterDuffXfermode
 
 ---------
 
-Xfermode （注意：叠加模式不能给控件设置背景不然无效？）
+Xfermode  设置 xfermode  mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+注意：叠加模式不能给控件设置背景不然无效？
+      paint 是成员变量的话 设置 Xfermode 注意重置（set（null））不然重复画的话会影响到下次的draw
+      关闭硬件加速 构造方法里 setLayerType(View.LAYER_TYPE_SOFTWARE,null);
 
 第一步：先画一个图形像素 。（第一步画的就是目标图形图像）
 第二步：给画笔设置 Mode paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN)); 

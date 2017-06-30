@@ -3,6 +3,7 @@
 
 1、对 canvas 执行操作的时候 最好是执行 restore 还原操作以免影响后面的操作
 2、canvas.restore/canvas.restoreToCount 只是对画布的操作执行还原，画出来的图片不能还原。
+3、无论对canvas执行什么操作 坐标系都是按原来的
 
 Canvas 
 

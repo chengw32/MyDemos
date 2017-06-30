@@ -64,7 +64,8 @@ public class MainActivity extends ListActivity {
         demos.add("L6-MaskFilter");
         demos.add("L7-Canvas----Region 区域的叠加方式--- canvas 的平移、旋转、缩放、裁切操作----- saveLayer ---");
         demos.add("L8-实战案例—滑动图片变色(自定义 Drawable)-搜索框动画");
-        demos.add("L9-贝塞尔曲线");
+        demos.add("L9-贝塞尔曲线-案例 qq消息气泡拖拽销毁");
+        demos.add("L10-PathMeasure-");
 
 
         listView.setAdapter(new MyAdapter());

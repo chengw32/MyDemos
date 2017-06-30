@@ -39,16 +39,20 @@ public class RoundCornerImageView extends View {
         xyjy = BitmapFactory.decodeResource(getResources(), R.mipmap.xiaowu);
         xiaowu = BitmapFactory.decodeResource(getResources(), R.mipmap.xiaowu);
 
+
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
 //        super.onDraw(canvas);
-        canvas.drawBitmap(yuanjiao,0,0,paint);
+//        canvas.drawBitmap(yuanjiao,0,0,paint);
 //        canvas.drawBitmap(heiyihu,0,0,paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
-        canvas.drawBitmap(xiaowu,00,0,paint);
+        canvas.drawCircle(100,100,100,paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+
+        canvas.drawBitmap(xiaowu,0,0,paint);
 
 //        canvas.drawBitmap(xyjy,0,0,paint);
 
