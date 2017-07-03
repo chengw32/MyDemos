@@ -9,6 +9,7 @@ import com.test.custom.mydemos.R;
 public class L10 extends BaseActivity {
 
     WaveView wv_test ;
+    TanTest tt ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,19 @@ public class L10 extends BaseActivity {
                 wv_test.move();
             }
         });
+        tt = (TanTest) findViewById(R.id.tt);
+        tt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tt.move();
+            }
+        });
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         wv_test.removeAnimator();
+        tt.removeAnimator();
     }
 }

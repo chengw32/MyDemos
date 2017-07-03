@@ -1,7 +1,7 @@
 
 PathMeasure ²âÁ¿ path µÄ¹¤¾ß
 
- getSegment »ñÈ¡ path µÄÒ»¶Î¡£getPosTan »ñÈ¡Ä³Ò»µãµÄÇÐÏß½Ç¶È
+ getSegment ½ØÈ¡ path µÄÒ»¶Î¡£getPosTan »ñÈ¡Ä³Ò»µãµÄÇÐÏß½Ç¶È¡£ setPath(path,forceClosed)µÚ¶þ¸ö²ÎÊý»áÓ°Ïìµ½ getLength£¨£©¡£Ö¸ÊÇ·ñËã±ÕºÏ»¹ÊÇ²»±ÕºÏµÄ³¤¶È
 
 ------mPath.rQuadTo Óë quadTo µÄÇø±ð£º---------
 
@@ -16,4 +16,4 @@ rQuadTo ÊÇÒÑÖªÆðµã×ø±ê£¬´ÓÆðµã¿ªÊ¼£¬È»ºóÉèÖÃºÃ¿ØÖÆµãµÄ ¡÷x£¬¡÷y  ÖáµÄÆ«ÒÆÁ¿£¬ÔÚÈ
 Ô­Àí£º»­¶þ½×±´Èû¶ûÇúÏß
  Æðµã²»¶ÏµÄÏòÓÒÒÆ¶¯£¬ÀûÓÃ rQuadTo ÊµÏÖ²¨ÀËÐ§¹û¡£
 
-×¢Òâµã£º ÆðµãÒªÔÚÆÁÄ»×ó±ßÒ»¸ö²¨³¤
+×¢Òâµã£º ÆðµãÒªÔÚÆÁÄ»×ó±ßÒ»¸ö²¨³¤£¬È»ºóÆðµã²»¶ÏµÄÓÒÒÆ¶¯¡£ µ±ÓÒÒÆ¶¯Ò»¸ö²¨³¤ºóÆðµãÓÖ»¹Ô­»ØÆÁÄ»ÓÒ±ßÒ»¸ö²¨³¤
