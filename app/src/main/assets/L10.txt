@@ -9,7 +9,7 @@ quadTo ÊÇÒÑÖªÆğµã×ø±ê£¬¿ØÖÆµãµÄ×ø±ê£¬ÖÕµãµÄ×ø±ê È»ºó»­³ö±´Èû¶ûÇúÏß£¬
 
 rQuadTo ÊÇÒÑÖªÆğµã×ø±ê£¬´ÓÆğµã¿ªÊ¼£¬È»ºóÉèÖÃºÃ¿ØÖÆµãµÄ ¡÷x£¬¡÷y  ÖáµÄÆ«ÒÆÁ¿£¬ÔÚÈ·¶¨ÖÕµãµÄ ¡÷x£¬¡÷y ÖáµÄÆ«ÒÆÁ¿
 
-Ö´ĞĞ rQuadTo ºóÓÖÖ´ĞĞ rQuadTo ÔòºóÃæµÄ rQradTo µÄ×ø±êÊÇÔÚÇ°ÃæµÄ rQuadTo µÄ×ø±êÒÆ¶¯µÄ»ù´¡ÉÏÔÚÒÆ¶¯¡£
+Ö´ĞĞ rQuadTo ºóÓÖÖ´ĞĞ rQuadTo ÔòºóÃæµÄ rQradTo µÄ×ø±êÊÇÔÚÇ°ÃæµÄ rQuadTo µÄ×ø±êÒÆ¶¯µÄ»ù´¡ÉÏÔÚÒÆ¶¯¡£Ë®²¨ÎÆµÄÁ½¸ö²¨¾ÍÊÇÖ´ĞĞ2´Î rQuadTo »­³öÀ´µÄ
 
 -------»­Ë®²¨ÎÆĞ§¹û------------------
 
@@ -17,3 +17,43 @@ rQuadTo ÊÇÒÑÖªÆğµã×ø±ê£¬´ÓÆğµã¿ªÊ¼£¬È»ºóÉèÖÃºÃ¿ØÖÆµãµÄ ¡÷x£¬¡÷y  ÖáµÄÆ«ÒÆÁ¿£¬ÔÚÈ
  Æğµã²»¶ÏµÄÏòÓÒÒÆ¶¯£¬ÀûÓÃ rQuadTo ÊµÏÖ²¨ÀËĞ§¹û¡£
 
 ×¢Òâµã£º ÆğµãÒªÔÚÆÁÄ»×ó±ßÒ»¸ö²¨³¤£¬È»ºóÆğµã²»¶ÏµÄÓÒÒÆ¶¯¡£ µ±ÓÒÒÆ¶¯Ò»¸ö²¨³¤ºóÆğµãÓÖ»¹Ô­»ØÆÁÄ»ÓÒ±ßÒ»¸ö²¨³¤
+
+-------½«Ò»¸öÍ¼Æ¬»­ÔÚÄ³¸öÇúÏßµÄÇĞÏß·½Ïò¡£--------
+
+ÊµÏÖ·½Ê½
+1¡¢ÀûÓÃÏµÍ³ api »ñÈ¡¾ØÕó ½«Í¼Æ¬»­µ½¾ØÕó¡£
+
+pathMeasure.getMatrix(mDeltaX, matrix, PathMeasure.POSITION_MATRIX_FLAG | PathMeasure.TANGENT_MATRIX_FLAG);
+µÚÒ»¸ö²ÎÊıÊÇpathµÄÆğÊ¼µãµ½¸ÃµãµÄ³¤¶È¡£
+µÚ¶ş¸ö²ÎÊıÊÇÒ»¸ö¾ØÕó¶ÔÏó£¬pathMeasure »ñÈ¡µ½µÄ¾ØÕó¸³Öµ¸øÕâ¸ö¶ÔÏó¡£
+µÚÈı¸ö²ÎÊıÊÇÅäÖÃ¸Ã¾ØÕóµÄÊôĞÔ¡£
+PathMeasure.POSITION_MATRIX_FLAG£¨position£© | PathMeasure.TANGENT_MATRIX_FLAG£¨tangent£© ¾ØÕó¾Í»áÑØ×ÅÇĞÏß½Ç¶È¡£ Èç¹û²»´« PathMeasure.TANGENT_MATRIX_FLAG ¾ØÕóÊÇÊúÖ±·½ÏòµÄÃ»ÓĞÑØÇĞÏß·½Ïò¡£ ¾ØÕóµÄ×óÉÏ½ÇÔÚÇúÏßÇĞµã ÀàËÆ ½¨ÉèÒøĞĞµÄÂÖÅÌÍ¼±êÊ¼ÖÕÊúÖ±·½Ïò
+
+matrix.preTranslate(- bm.getWidth()/2 ,-bm.getHeight() / 2);Õâ¸öapiÊÇ¶Ô¾ØÕó½øĞĞÆ½ÒÆµ÷ÕûÎ»ÖÃ
+
+canvas.drawBitmap(bm,matrix,null);½«Í¼»­ÔÚ¾ØÕóÀï¾ØÕó´óĞ¡ÓÉÍ¼Æ¬´óĞ¡¾ö¶¨
+
+2¡¢ÊÖ¶¯¼ÆËãÇĞÏß½Ç¶È ÉèÖµ¸ø¾ØÕó
+
+*1 »ñÈ¡Ä³µãµÄ ×ø±ê ¸ú tan Öµ¡£
+
+pathMeasure.getPosTan(mDeltaX, pos, tan);µÚÒ»¸ö²ÎÊıÊÇÕâ¸öµãËùÔÚ path µÄ³¤¶È£¬µÚ¶ş¸ö²ÎÊıÊÇ¸ÃµãËùÔÚÎ»ÖÃ£¬µÚÈı¸ö²ÎÊıÊÇ¸Ãµã tangent ¶ÔÓ¦µÄ x£¬y±ÈÀı¡£ µ÷ÓÃÕâ¸ö·½·¨µÄÊ±ºò»á°Ñ»ñÈ¡µ½µÄ pos ¸ú tan ¸³Öµµ½µÚ¶şµÚÈı¸ö²ÎÊıµÄ¶ÔÏó
+
+*2 ½«¾ØÕóĞı×ª tan Êı×éÀïÃæµÄ½Ç¶È¡£
+
+float degree = (float) (Math.atan2(tan[1],tan[0]) * 180f / Math.PI);//atan2 µÄ´«ÖµË³Ğò²»ÄÜ´í
+matrix.postRotate(degree,bm.getWidth() / 2,bm.getHeight() / 2 );
+
+*3 ½«¾ØÕóÆ½ÒÆµ½ pos ÀïÃæµÄ×ø±êÖµ ×öÊÊµ±µÄµ÷Õû
+
+matrix.postTranslate(pos[0]-bm.getWidth() / 2,pos[1]-bm.getHeight() / 2 );
+
+*4 »­ bitmap 
+
+canvas.drawBitmap(bm,matrix,paint);
+
+------------×¢Òâµã-------------------
+1¡¢¾ØÕóÒª¼ÇµÃ reset  path Ò²ÊÇÒª×¢Òâ reset¡£
+2¡¢setRotate ¸ú postRotate µÄÇø±ğ postTranslate ¸ú setTranslate µÄÇø±ğ¡£setXXX Ğ§¹ûÊÇ²»ÄÜµş¼ÓµÄ ±ÈÈçÖ´ĞĞÁË setRotate ÓÖÖ´ĞĞ setTranslate ÔòÖ»ÓĞ setTranslate Ğ§¹û¡£¶ø post Ğ§¹û¿ÉÒÔµş¼Ó¡£Èç¹ûÏÈµ÷ÓÃsetXXX ÔÚµ÷ÓÃ postXXX ÔòĞ§¹û¿ÉÒÔµş¼Ó
+
+

@@ -1,0 +1,29 @@
+
+SVG Scalable[可伸缩] Vector ['vekt?" 矢量] Graphics['gr?f?ks" 图形，制图]
+
+-------SVG兼容适配 5.0以下系统--------5.0以上 直接用 src 属性
+ as 2.2+版本
+ gradle 2.+
+defaultConfig 里面配置 vectorDrawables.useSupportLibrary = true ;
+appcompat-v7 版本要23.2+
+activity 需要继承 AppCompatActivity
+ui布局中添加 xmlns:app="http://schemas.android.com/apk/res-auto"
+
+---------怎么用SVG ?----------
+
+Activity 里面加下面的代码适配button 设置 selector 文字设置 drawable 的一个bug 相当于开启一个权限
+static {
+			AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+		}
+
+ImageView/ImageButton
+XML app:srcCompat
+代码里面使用无区别 setImageResource,setBackground......
+
+Button 不支持app:srcCompat
+		Xml 使用在Button的selector
+
+textview的drawable  直接使用
+
+
+
