@@ -7,4 +7,10 @@
     android:layout_height="match_parent"
     tools:context="com.test.custom.mydemos.L13.L13">
 
+    <Button
+        android:id="@+id/toucheTest"
+        android:layout_width="100dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="100dp"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,4 @@
+--------事件分发--------
+
+一个 view setOnTouchLisntenr 返回 true 这个 view setOnClickListener 无效的原因
+

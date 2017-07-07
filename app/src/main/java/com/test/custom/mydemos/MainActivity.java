@@ -63,6 +63,7 @@ public class MainActivity extends ListActivity {
         demos.add("L9-贝塞尔曲线-案例 qq消息气泡拖拽销毁");
         demos.add("L10-PathMeasure-水波纹效果加小船动画( Matrix 如果是成员变量要重置)---mPathMeasure.getSegment()");
         demos.add("L11-SVG-");
+        demos.add("L13--事件分发机制");
 
         listView.setAdapter(new MyAdapter());
     }
