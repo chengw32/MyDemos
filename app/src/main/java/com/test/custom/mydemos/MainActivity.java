@@ -64,6 +64,8 @@ public class MainActivity extends ListActivity {
         demos.add("L10-PathMeasure-水波纹效果加小船动画( Matrix 如果是成员变量要重置)---mPathMeasure.getSegment()");
         demos.add("L11-SVG-");
         demos.add("L13--事件分发机制");
+        demos.add("L16--属性动画");
+        demos.add("L17--直播鲜花效果");
 
         listView.setAdapter(new MyAdapter());
     }

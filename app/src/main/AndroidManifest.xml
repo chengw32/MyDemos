@@ -37,6 +37,10 @@
         </activity>
         <activity android:name=".L13.L13">
         </activity>
+        <activity android:name=".L16.L16">
+        </activity>
+        <activity android:name=".L17.L17">
+        </activity>
     </application>
 
 </manifest>

@@ -1,4 +1,20 @@
 --------事件分发--------
 
+三兄弟关系
+
+Activity 里能重写 dispatchTouchEvent 、onTouchEvent 
+ViewGroup 里能重写 dispatchTouchEvent 、onTouchEvent 、onInterceptTouchEvent 
+View 里能重写 dispatchTouchEvent 、onTouchEvent 
+
+三兄弟执行顺序
+
+最先执行 dispatchTouchEvent （触摸传递事件），然后执行 onInterceptTouchEvent （拦截触摸事件），最后 onTouchEvent （触摸事件）
+
+在 Activity 里重写 dispatchTouchEvent 最先执行这个方法的是 phoneWindow 。
+
+Activity 的 setContentView 里面执行的是 getWindow().setContentView(layoutResID); getWindow 获取的是 Window 对象。window 的唯一实现类是 phoneWindow。phoneWindow 执行 setContentView 本质是 DecorView 加载 mDecor.onResourcesLoaded(mLayoutInflater, layoutResource); 
+
+
 一个 view setOnTouchLisntenr 返回 true 这个 view setOnClickListener 无效的原因
+
 
