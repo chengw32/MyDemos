@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.test.custom.mydemos.L9.L9">
+    tools:context=".ui.L9.L9">
 
-    <!--<com.test.custom.mydemos.L9.DragBubbleView-->
+    <!--<com.test.custom.mydemos.ui.L9.DragBubbleView-->
         <!--android:layout_width="368dp"-->
         <!--android:layout_height="624dp"-->
         <!--app:bubble_text="99"-->
@@ -17,7 +17,7 @@
         <!--app:bubble_color="#ff0000"-->
         <!--tools:layout_editor_absoluteY="8dp"-->
         <!--tools:layout_editor_absoluteX="8dp"/>-->
-    <com.test.custom.mydemos.L9.PaoPaoView
+    <com.test.custom.mydemos.ui.L9.PaoPaoView
         android:layout_width="368dp"
         android:layout_height="624dp"
         tools:layout_editor_absoluteY="8dp"

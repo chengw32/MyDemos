@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.test.custom.mydemos.L6.L6">
+    tools:context=".ui.L6.L6">
 
 
 
-    <com.test.custom.mydemos.L6.MaskView
+    <com.test.custom.mydemos.ui.L6.MaskView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

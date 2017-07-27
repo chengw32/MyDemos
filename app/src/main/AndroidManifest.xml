@@ -3,6 +3,7 @@
           package="com.test.custom.mydemos">
 
     <application
+        android:name=".application.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
@@ -16,30 +17,38 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".L3.L3"/>
-        <activity android:name=".L4.L4">
+        <activity android:name=".ui.L3.L3"/>
+        <activity android:name=".ui.L4.L4">
         </activity>
-        <activity android:name=".L9.L9">
+        <activity android:name=".ui.L9.L9">
         </activity>
-        <activity android:name=".L4.MirrorActivity">
+        <activity android:name=".ui.L4.MirrorActivity">
         </activity>
-        <activity android:name=".L5.L5">
+        <activity android:name=".ui.L5.L5">
         </activity>
-        <activity android:name=".L6.L6">
+        <activity android:name=".ui.L6.L6">
         </activity>
-        <activity android:name=".L7.L7">
+        <activity android:name=".ui.L7.L7">
         </activity>
-        <activity android:name=".L8.L8">
+        <activity android:name=".ui.L8.L8">
         </activity>
-        <activity android:name=".L10.L10">
+        <activity android:name=".ui.L10.L10">
         </activity>
-        <activity android:name=".L11.L11">
+        <activity android:name=".ui.L11.L11">
         </activity>
-        <activity android:name=".L13.L13">
+        <activity android:name=".ui.L13.L13">
         </activity>
-        <activity android:name=".L16.L16">
+        <activity android:name=".ui.L16.L16">
         </activity>
-        <activity android:name=".L17.L17">
+        <activity android:name=".ui.L17.L17">
+        </activity>
+        <activity android:name=".ui.UI">
+        </activity>
+        <activity android:name=".ErrorActivity">
+        </activity>
+        <activity android:name=".ui.L18.L18">
+        </activity>
+        <activity android:name=".ui.L19.L19">
         </activity>
     </application>
 

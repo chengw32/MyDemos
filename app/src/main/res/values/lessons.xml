@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    /**
+    *
+    * 命名规范：
+
+    首先 ：
+    * 1、 alllessons 数组的 item 命名都以 XX- 开头并且要用 XX 作为该课程模块的包名。 比如 ui-高级UI， 则高级ui的课程都放在以 ui 命名的包名下。
+       因为从 MainActivity 跳转到某个模块的课程的时候 是根据 app包名 + 该模块所在的包（ui）+ UI课程分类列表Activity 三个拼接生成Class 然后跳转。
+      2、某个课程模块列表的 Activity 类命名也必须用 XX 的大写字母命名。比如高级ui的列表页用 ui-高级UI 前面的 ui 的大写作为 Activity 类名。
+
+    然后是课程详情页规则：
+    * 1 每节课都建一个文件夹 LXX (XX 是课程数字)
+    * 2 每节课的 activity 都是 LXX 命名  同上(XX 是课程数字)
+    * 3 array 数组 item 里面的内容都是以 LXX- 开头,“-” 一定要加 因为要根据 “-”截取前面字符作为类名 用这个类名做跳转 所以 1 2 点命名都要一致
+    * 4 每节课都要在 assets 文件夹下面新建该模块的文件夹。然后在该模块文件夹下都有 LXX.txt 笔记 在详情页要读取用 显示知识点
+    * */
+
+    <array name="alllessons">
+
+        <item>ui-高级UI</item>
+
+    </array>
+
+    <array name="ui">
+        <item>L3-画笔基本使用_圆形进度条_画小黄人</item>
+        <item>L4-各种渲染-shader-圆形头像-BitmapShader-平铺模式-添加矩阵（矩阵旋转角度、缩放等操作）-shapeDrawable</item>
+        <item>L5-xfermode的几种叠加模式-</item>
+        <item>L6-MaskFilter</item>
+        <item>L7-Canvas----Region 区域的叠加方式--- canvas 的平移、旋转、缩放、裁切操作----- saveLayer ---</item>
+        <item>L8-实战案例—滑动图片变色(自定义 Drawable)-搜索框动画</item>
+        <item>L9-贝塞尔曲线-案例 qq消息气泡拖拽销毁</item>
+        <item>L10-PathMeasure-水波纹效果加小船动画( Matrix 如果是成员变量要重置)---mPathMeasure.getSegment()</item>
+        <item>L11-SVG-</item>
+        <item>L13--事件分发机制</item>
+        <item>L16--属性动画</item>
+        <item>L17--动画案例--直播鲜花效果</item>
+        <item>L18--动画案例</item>
+        <item>L19--手写动画框架</item>
+
+
+    </array>
+
+
+</resources>

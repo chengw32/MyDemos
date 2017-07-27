@@ -1,0 +1,11 @@
+
+------实现思路-----
+
+移动轨迹是三阶贝塞尔曲线 利用估值器完成。贝塞尔曲线的控制点在屏幕两边的边缘， y 轴为 0到屏幕高度 随机。前阶段的动画是各种属性动画集合。
+
+------ 知识点 -------
+
+1、ObjectAnimator.ofFloat(xx,"ScaleY",0f,1f); 效果是Y 轴从扁到原图的过程 如果 x，y 同时用 就是一个缩放效果
+2、ObjectAnimator.ofFloat(mImageView,"Rotation",0,360f) 旋转动画效果
+3、ObjectAnimator.ofInt(mImageView,"ColorFilter", Color.RED,Color.BLUE); 从 red 渐变到blue 过程
+4、int i = random.nextInt(6); i 是从 0-5 ；

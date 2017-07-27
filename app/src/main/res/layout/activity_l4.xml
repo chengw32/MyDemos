@@ -20,7 +20,7 @@
                 android:text="查看放大镜效果"
                 android:layout_height="wrap_content"/>
 
-            <com.test.custom.mydemos.L4.CircleHeadView
+            <com.test.custom.mydemos.ui.L4.CircleHeadView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

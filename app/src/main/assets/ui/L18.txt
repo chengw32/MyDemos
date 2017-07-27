@@ -1,0 +1,6 @@
+
+------几个知识点--------
+1、 开平方根 Math.hypot() 开根号 Math.sqrt（）
+2、画一个圆，半径如果是 50 ，如果setStrokeWidth 是100 则画出来的效果 即使 setStyle 为 STROKE 也是实心的。
+3、setStrokeWidth 如果为 100 则 中心才是线经过的地方。比如 画个Style 为 STROKE 半径为 50 的圆 为了填充圆心 StrokeWidth 为 50 是不够的 因为只有25 的厚度在圆内，还有 25 画在了圆外 圆环只经过线厚度的中心部分 所以线的厚度的一半 就要圆的半径大小
+4、一些方法的执行顺序 onMeasure 》 onLayout 》 onDraw
