@@ -21,4 +21,11 @@
         <attr name="bubble_textColor" format="color"/>
     </declare-styleable>
 
+    
+    <!--自定义动画框架 自定义属性-->
+    <declare-styleable name="MyAnimator">
+        
+        <attr name="ani_alpha" format="boolean"/>
+        
+    </declare-styleable>
 </resources>

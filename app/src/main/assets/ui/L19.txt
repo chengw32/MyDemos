@@ -1,4 +1,18 @@
 
+----- 思路 --------
+
+自定义一个线性布局，该线性布局 addview 的时候 判断子 view 是否配置了动画属性。如果有动画属性则给这个子 view 包裹一层执行动画的自定义容器。该容器执行子 view 属性配置的动画，这样效果看起来就跟这个子 view 有动画效果一样。
+
+--- 复习自定义属性用法 ---------
+
+1、在 attrs 文件添加 <declare-styleable name="myanimator"> <attr name="ani_alpha" format="float"></attr>
+...
+2、在自定义控件参数有 AttributeSet attrs 的方法里获取自定义属性：TypedArray a =  context.obtainStyledAttributes(attrs, R.styleable.myanimator);
+3、获取某个属性 float aFloat = a.getFloat(R.styleable.myanimator_ani_alpha, -1);
+
+
 -------- 知识点 --------
 
-onFinishInflate 页面渲染完成调用 
+1、onFinishInflate 页面渲染完成
+2、解析自定义属性： 重写 generateLayoutParams（AttributeSet attrs）方法。写一个类继承 LinearLayout.LayoutParams 自己解析自定义属性。
+3、TypedArray 要 a.recycle();

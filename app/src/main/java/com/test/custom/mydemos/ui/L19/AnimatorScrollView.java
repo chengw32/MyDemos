@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
-import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 /**
@@ -29,12 +29,22 @@ public class AnimatorScrollView extends ScrollView{
         super.onSizeChanged(w, h, oldw, oldh);
     }
 
+    private LinearLayout content ;
     Rect mRect = new Rect();
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        getHitRect(mRect);
-        boolean localVisibleRect = getLocalVisibleRect(mRect);
+        for (int i = 0; i < content.getChildCount(); i++) {
+            AnimatorContnet childAt = (AnimatorContnet) content.getChildAt(i);
+            childAt.getHitRect(mRect);
+            boolean localVisibleRect = getLocalVisibleRect(mRect);
+            if (localVisibleRect){
+                childAt.startAni();
+            }else {
+                childAt.restoreAni();
+
+            }
+        }
 
     }
 
@@ -42,7 +52,8 @@ public class AnimatorScrollView extends ScrollView{
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        View childAt = getChildAt(0);
+
+        content = (LinearLayout) getChildAt(0);
     }
 
     @Override

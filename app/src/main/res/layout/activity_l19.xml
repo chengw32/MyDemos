@@ -2,17 +2,54 @@
 <com.test.custom.mydemos.ui.L19.AnimatorScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tt="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.test.custom.mydemos.ui.L19.L19">
 
 
-    <LinearLayout
+    <com.test.custom.mydemos.ui.L19.AnimatorLinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_6"
             android:layout_width="match_parent"
             android:text="sssssssssssssssssssss"
             android:layout_marginTop="10dp"
@@ -23,8 +60,94 @@
             android:text="sssssssssssssssssssss"
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
+            android:id="@+id/tv_7"
             android:layout_height="50dp"/>
         <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_8"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_9"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_10"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:id="@+id/tv_11"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_12"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_13"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_14"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_15"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_16"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_17"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/tv_18"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_19"
+            android:layout_width="match_parent"
+            android:text="sssssssssssssssssssss"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/holo_red_light"
+            android:layout_height="50dp"/>
+        <TextView
+            android:id="@+id/tv_20"
             android:layout_width="match_parent"
             android:text="sssssssssssssssssssss"
             android:layout_marginTop="10dp"
@@ -35,121 +158,22 @@
             android:text="sssssssssssssssssssss"
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
+            android:id="@+id/tv_21"
             android:layout_height="50dp"/>
         <TextView
             android:layout_width="match_parent"
             android:text="sssssssssssssssssssss"
+            android:id="@+id/tv_22"
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
             android:layout_height="50dp"/>
         <TextView
             android:layout_width="match_parent"
+            android:id="@+id/tv_23"
             android:text="sssssssssssssssssssss"
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
             android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:text="sssssssssssssssssssss"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/holo_red_light"
-            android:layout_height="50dp"/>
-    </LinearLayout>
+    </com.test.custom.mydemos.ui.L19.AnimatorLinearLayout>
 
 </com.test.custom.mydemos.ui.L19.AnimatorScrollView>
