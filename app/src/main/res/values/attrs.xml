@@ -22,10 +22,16 @@
     </declare-styleable>
 
     
-    <!--自定义动画框架 自定义属性-->
     <declare-styleable name="MyAnimator">
         
         <attr name="ani_alpha" format="boolean"/>
-        
+        <attr name="ani_move"/>
+
     </declare-styleable>
+    <attr name="ani_move">
+        <flag name="fromTop" value="0x01" />
+        <flag name="fromBottom" value="0x02" />
+        <flag name="fromLeft" value="0x04" />
+        <flag name="fromRight" value="0x08" />
+    </attr>
 </resources>

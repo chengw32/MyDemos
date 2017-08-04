@@ -5,6 +5,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -35,14 +36,30 @@ public class AnimatorScrollView extends ScrollView{
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
         for (int i = 0; i < content.getChildCount(); i++) {
-            AnimatorContnet childAt = (AnimatorContnet) content.getChildAt(i);
+            View childView = content.getChildAt(i);
+            //判断是否包含动画容器
+            if(!(childView instanceof AniExecute)){
+                continue;
+            }
+            AnimatorContnet childAt = (AnimatorContnet) childView;
             childAt.getHitRect(mRect);
             boolean localVisibleRect = getLocalVisibleRect(mRect);
             if (localVisibleRect){
-                childAt.startAni();
-            }else {
-                childAt.restoreAni();
+                int top = childView.getTop();
+                int childViewheight = childView.getHeight();
+                int scrollViewHeight = getHeight();
+                int startAniHeight = top -scrollViewHeight ;
+                if (t >= startAniHeight && t <= startAniHeight + childViewheight){
+                    int detaHeight = t + scrollViewHeight - top;
+                    float i1 = (float) detaHeight / (float) childViewheight;
 
+                    childAt.startAni(i1);
+
+                }else{
+                    childAt.restoreAni();
+                }
+            }else {
+                    childAt.restoreAni();
             }
         }
 

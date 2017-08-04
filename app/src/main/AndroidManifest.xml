@@ -50,6 +50,8 @@
         </activity>
         <activity android:name=".ui.L19.L19">
         </activity>
+        <activity android:name=".ui.L20.L20">
+        </activity>
     </application>
 
 </manifest>

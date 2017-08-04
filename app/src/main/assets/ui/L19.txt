@@ -9,10 +9,13 @@
 ...
 2、在自定义控件参数有 AttributeSet attrs 的方法里获取自定义属性：TypedArray a =  context.obtainStyledAttributes(attrs, R.styleable.myanimator);
 3、获取某个属性 float aFloat = a.getFloat(R.styleable.myanimator_ani_alpha, -1);
+4、属性联想不出来就 直接硬敲代码
 
 
 -------- 知识点 --------
 
 1、onFinishInflate 页面渲染完成
-2、解析自定义属性： 重写 generateLayoutParams（AttributeSet attrs）方法。写一个类继承 LinearLayout.LayoutParams 自己解析自定义属性。
+2、解析自定义属性： 重写 generateLayoutParams（AttributeSet attrs）方法。这个方法是获取子 View 的LayoutParams 。写一个类继承 LinearLayout.LayoutParams 构造方法里解析出自定义属性。
 3、TypedArray 要 a.recycle();
+4、在 addview 时。包裹一层执行动画的自定义容器的时候 要把子 view 的layoutparmas 设置给这个容器 有些margin值需要设置不然效果不对
+5、传进来的参数是fromBottom //fromLeft|fromeBottom & fromBottom = fromBottom
