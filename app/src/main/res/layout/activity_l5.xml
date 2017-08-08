@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_red_light"
-    tools:context=".ui.L5.L5">
+    tools:context=".Ui.L5.L5">
 
 
     <LinearLayout
@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteX="8dp">
 
 
-        <com.test.custom.mydemos.ui.L5.RoundCornerImageView
+        <com.test.custom.mydemos.Ui.L5.RoundCornerImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

@@ -1,10 +1,10 @@
-package com.test.custom.mydemos.ui;
+package com.test.custom.mydemos.Ui;
 
 import com.test.custom.mydemos.base.BaseListActivity;
 import com.test.custom.mydemos.R;
 
 
-public class UI extends BaseListActivity {
+public class Ui extends BaseListActivity {
 
     @Override
     protected int getIdArrayValues() {

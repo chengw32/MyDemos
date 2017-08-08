@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L4;
+package com.test.custom.mydemos.Ui.L4;
 
 import android.os.Bundle;
 

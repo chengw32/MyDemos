@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L11;
+package com.test.custom.mydemos.Ui.L11;
 
 import com.test.custom.mydemos.base.BaseActivity;
 import com.test.custom.mydemos.R;

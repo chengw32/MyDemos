@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.test.custom.mydemos.R;
 import com.test.custom.mydemos.utils.ClassUtils;
+import com.test.custom.mydemos.utils.LogUtil;
 
 /**
  * Author 陈国武
@@ -61,7 +62,8 @@ public class MyAdapter extends BaseAdapter {
             String tag = (String) v.getTag();
             int i = tag.indexOf("-");
             String actName = tag.substring(0, i);
-            String act = packPath + actName + "."+ actName.toUpperCase();
+            String act = packPath + actName + "."+ actName;
+            LogUtil.e("act"+act);
             mContext.startActivity(new Intent(mContext, ClassUtils.getLocalClass(act)));
             mContext.overridePendingTransition(R.anim.in,0);
 

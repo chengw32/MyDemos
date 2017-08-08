@@ -6,9 +6,9 @@
     * 命名规范：
 
     首先 ：
-    * 1、 alllessons 数组的 item 命名都以 XX- 开头并且要用 XX 作为该课程模块的包名。 比如 ui-高级UI， 则高级ui的课程都放在以 ui 命名的包名下。
-       因为从 MainActivity 跳转到某个模块的课程的时候 是根据 app包名 + 该模块所在的包（ui）+ UI课程分类列表Activity 三个拼接生成Class 然后跳转。
-      2、某个课程模块列表的 Activity 类命名也必须用 XX 的大写字母命名。比如高级ui的列表页用 ui-高级UI 前面的 ui 的大写作为 Activity 类名。
+    * 1、 alllessons 数组的 item 命名都以 XX- 开头,并且要以 XX 作为该课程模块的包名。 比如 Ui-高级UI， 则高级Ui的课程都放在以 Ui 命名的包名下。
+       因为从 MainActivity 跳转到某个模块的课程的时候 是根据 app包名 + 该模块所在的包（Ui）+ Ui课程分类列表Activity 三个拼接生成Class 然后跳转。
+      2、某个课程模块列表的 Activity 类命名也必须用 alllessons 数组里对应位置的 “-” 前的字母命名母命名。比如高级Ui的列表页用 Ui-高级UI 前面的 Ui 作为 Activity 类名。
 
     然后是课程详情页规则：
     * 1 每节课都建一个文件夹 LXX (XX 是课程数字)
@@ -19,7 +19,8 @@
 
     <array name="alllessons">
 
-        <item>ui-高级UI</item>
+        <item>Ui-高级UI</item>
+        <item>Kotlin-kotlin</item>
 
     </array>
 
@@ -43,5 +44,9 @@
 
     </array>
 
+    <array name="kotlin">
+        <item>L1--kotlin前世今生</item>
+
+    </array>
 
 </resources>

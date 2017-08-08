@@ -17,40 +17,46 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.L3.L3"/>
-        <activity android:name=".ui.L4.L4">
+        <activity android:name=".Ui.L3.L3"/>
+        <activity android:name=".Ui.L4.L4">
         </activity>
-        <activity android:name=".ui.L9.L9">
+        <activity android:name=".Ui.L9.L9">
         </activity>
-        <activity android:name=".ui.L4.MirrorActivity">
+        <activity android:name=".Ui.L4.MirrorActivity">
         </activity>
-        <activity android:name=".ui.L5.L5">
+        <activity android:name=".Ui.L5.L5">
         </activity>
-        <activity android:name=".ui.L6.L6">
+        <activity android:name=".Ui.L6.L6">
         </activity>
-        <activity android:name=".ui.L7.L7">
+        <activity android:name=".Ui.L7.L7">
         </activity>
-        <activity android:name=".ui.L8.L8">
+        <activity android:name=".Ui.L8.L8">
         </activity>
-        <activity android:name=".ui.L10.L10">
+        <activity android:name=".Ui.L10.L10">
         </activity>
-        <activity android:name=".ui.L11.L11">
+        <activity android:name=".Ui.L11.L11">
         </activity>
-        <activity android:name=".ui.L13.L13">
+        <activity android:name=".Ui.L13.L13">
         </activity>
-        <activity android:name=".ui.L16.L16">
+        <activity android:name=".Ui.L16.L16">
         </activity>
-        <activity android:name=".ui.L17.L17">
+        <activity android:name=".Ui.L17.L17">
         </activity>
-        <activity android:name=".ui.UI">
+        <activity android:name=".Ui.Ui">
         </activity>
         <activity android:name=".ErrorActivity">
         </activity>
-        <activity android:name=".ui.L18.L18">
+        <activity android:name=".Ui.L18.L18">
         </activity>
-        <activity android:name=".ui.L19.L19">
+        <activity android:name=".Ui.L19.L19">
         </activity>
-        <activity android:name=".ui.L20.L20">
+        <activity android:name=".Ui.L20.L20">
+        </activity>
+        <activity android:name=".Kotlin.Kotlin">
+        </activity>
+        <activity android:name=".Kotlin.L1.L1">
+        </activity>
+        <activity android:name=".Kotlin.L1.KotlinTest">
         </activity>
     </application>
 

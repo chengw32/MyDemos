@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L17;
+package com.test.custom.mydemos.Ui.L17;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

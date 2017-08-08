@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L8;
+package com.test.custom.mydemos.Ui.L8;
 
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;

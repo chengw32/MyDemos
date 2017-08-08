@@ -1,0 +1,20 @@
+
+---- 知识点 -----
+
+1、***********
+
+viewPager 翻转设置 PageTransformer
+
+PageTransformer 里重写 transformPage 方法。该方法返回 ViewPager 的整个 View 与 position。
+关于 Position：返回的是 ViewPager 当前屏跟左右两屏的移动百分比
+如果是向左滑动 Viewpager 只有2页时 position的区间（0.0~-1.0,1.0~0.0）。如果是三页 position 的区间（-1.0~-2.0,0.0~-1.0,1.0~0.0）
+如果是向右滑动 Viewpager 只有2页时 position的区间（-1.0~0.0,0.0~1.0）。如果是三页 position 的区间（1.0~-2.0,0.0~1.0,-1.0~0.0）
+理解要点就是 每页 pager 的坐标从左下角相对屏幕左下角坐标位移。
+2、**************
+Math.max(0.9f,1-Math.abs(position)) 可以控制一个数的最大值。
+3、************
+设置View的旋转中心
+view.setPivotY/X
+设置View的旋转角度
+view.setRotationY/X
+

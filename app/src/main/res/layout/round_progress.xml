@@ -9,14 +9,14 @@
     >
 
 
-    <com.test.custom.mydemos.ui.L3.RoundProgress
+    <com.test.custom.mydemos.Ui.L3.RoundProgress
         android:id="@+id/pg"
         android:layout_width="200dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         app:ProgressWidth="30dp"
         android:layout_height="200dp"/>
-    <com.test.custom.mydemos.ui.L3.MinionView
+    <com.test.custom.mydemos.Ui.L3.MinionView
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="wrap_content"/>

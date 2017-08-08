@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L9;
+package com.test.custom.mydemos.Ui.L9;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

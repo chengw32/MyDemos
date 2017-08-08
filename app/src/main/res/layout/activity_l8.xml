@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.L8.L8">
+    tools:context=".Ui.L8.L8">
 
-    <com.test.custom.mydemos.ui.L8.MyImageView
+    <com.test.custom.mydemos.Ui.L8.MyImageView
         android:id="@+id/iv_drawable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
         />
 
 
-    <com.test.custom.mydemos.ui.L8.AnimatSearchView
+    <com.test.custom.mydemos.Ui.L8.AnimatSearchView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/iv_drawable"

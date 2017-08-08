@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L10;
+package com.test.custom.mydemos.Ui.L10;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

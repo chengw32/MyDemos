@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L16;
+package com.test.custom.mydemos.Ui.L16;
 
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;

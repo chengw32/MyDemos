@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L6;
+package com.test.custom.mydemos.Ui.L6;
 
 import android.content.Context;
 import android.graphics.Bitmap;

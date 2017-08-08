@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.L7.L7">
+    tools:context=".Ui.L7.L7">
 
 
     
-    <com.test.custom.mydemos.ui.L7.CanvasTest
+    <com.test.custom.mydemos.Ui.L7.CanvasTest
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

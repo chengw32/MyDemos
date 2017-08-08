@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.test.custom.mydemos.ui.L19.AnimatorScrollView
+<com.test.custom.mydemos.Ui.L19.AnimatorScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.test.custom.mydemos.ui.L19.L19">
+    tools:context="com.test.custom.mydemos.Ui.L19.L19">
 
 
-    <com.test.custom.mydemos.ui.L19.AnimatorLinearLayout
+    <com.test.custom.mydemos.Ui.L19.AnimatorLinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="wrap_content">
@@ -177,6 +177,6 @@
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
             android:layout_height="50dp"/>
-    </com.test.custom.mydemos.ui.L19.AnimatorLinearLayout>
+    </com.test.custom.mydemos.Ui.L19.AnimatorLinearLayout>
 
-</com.test.custom.mydemos.ui.L19.AnimatorScrollView>
+</com.test.custom.mydemos.Ui.L19.AnimatorScrollView>

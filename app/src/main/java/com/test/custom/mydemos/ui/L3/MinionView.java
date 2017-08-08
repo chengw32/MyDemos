@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L3;
+package com.test.custom.mydemos.Ui.L3;
 
 import android.annotation.TargetApi;
 import android.content.Context;

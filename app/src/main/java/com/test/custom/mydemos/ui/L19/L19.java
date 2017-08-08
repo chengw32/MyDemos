@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L19;
+package com.test.custom.mydemos.Ui.L19;
 
 import android.os.Bundle;
 

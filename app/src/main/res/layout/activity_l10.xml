@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.L10.L10">
+    tools:context=".Ui.L10.L10">
 
 
-    <com.test.custom.mydemos.ui.L10.WaveView
+    <com.test.custom.mydemos.Ui.L10.WaveView
         android:id="@+id/wv_test"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp"/>
-    <com.test.custom.mydemos.ui.L10.TanTest
+    <com.test.custom.mydemos.Ui.L10.TanTest
         android:id="@+id/tt"
         android:layout_weight="1"
         android:layout_width="match_parent"

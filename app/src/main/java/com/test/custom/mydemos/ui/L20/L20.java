@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L20;
+package com.test.custom.mydemos.Ui.L20;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,7 +19,7 @@ public class L20 extends BaseActivity {
 
         ViewPager vp = (ViewPager) findViewById(R.id.vp);
         vp.setAdapter(new MyAdapter(getSupportFragmentManager()));
-        vp.setPageTransformer();
+        vp.setPageTransformer(false,new MyPageTransformer());
 
     }
 

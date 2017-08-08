@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L18;
+package com.test.custom.mydemos.Ui.L18;
 
 import android.os.Bundle;
 import android.view.ViewGroup;

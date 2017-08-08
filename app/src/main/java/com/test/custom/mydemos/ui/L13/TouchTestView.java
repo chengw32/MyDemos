@@ -1,4 +1,4 @@
-package com.test.custom.mydemos.ui.L13;
+package com.test.custom.mydemos.Ui.L13;
 
 import android.content.Context;
 import android.util.AttributeSet;
