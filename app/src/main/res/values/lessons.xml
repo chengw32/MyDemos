@@ -35,11 +35,12 @@
         <item>L10-PathMeasure-水波纹效果加小船动画( Matrix 如果是成员变量要重置)---mPathMeasure.getSegment()</item>
         <item>L11-SVG-</item>
         <item>L13--事件分发机制</item>
-        <item>L16--属性动画</item>
+        <item>L16--属性动画-动画分类--各种插值器---估值器</item>
         <item>L17--动画案例--直播鲜花效果</item>
-        <item>L18--动画案例</item>
-        <item>L19--手写动画框架</item>
+        <item>L18--动画案例 splash 动画</item>
+        <item>L19--手写动画框架-</item>
         <item>L20--ViewPager翻页效果</item>
+        <item>L21--MaterialDesign</item>
 
 
     </array>

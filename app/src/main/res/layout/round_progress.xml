@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         app:ProgressWidth="30dp"
         android:layout_height="200dp"/>
-    <com.test.custom.mydemos.Ui.L3.MinionView
+    <com.test.custom.mydemos.Ui.L3.BaNaNaView
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:layout_height="wrap_content"/>
