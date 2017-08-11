@@ -301,8 +301,8 @@ class MinionView extends View{
         canvas.drawArc(rect, 99, -3, false, mPaint);
 
 //眼睛半径
-        float radiusEyes = mRadius / 3;
         initPaint();
+        float radiusEyes = mRadius / 3;
         mPaint.setColor(Color.WHITE);
         mPaint.setStrokeWidth(mStrokeWidth);
         mPaint.setStyle(Paint.Style.FILL);
