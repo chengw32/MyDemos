@@ -21,6 +21,7 @@
 
         <item>Ui-高级UI</item>
         <item>Kotlin-kotlin</item>
+        <item>NDK-NDK开发</item>
 
     </array>
 
@@ -47,6 +48,17 @@
 
     <array name="kotlin">
         <item>L1--kotlin前世今生</item>
+
+    </array>
+    <array name="ndk">
+        <item>L1--ndk开发准备</item>
+        <item>L2--指针定义-指针运算-数组-指针-指针类型</item>
+        <item>L3--字符串使用-函数指针-内存分配-malloc</item>
+        <item>L4--结构体-结构体指针-结构体里面含函数指针变量-单向链表-typedef -- union 共用体-- enum 枚举</item>
+        <item>L5--文件io-文件加解密-预处理#defind-条件编译</item>
+        <item>L6--as开发NDK环境搭建-</item>
+        <item>L10--</item>
+        <item>L15--阿里云服务器配置-</item>
 
     </array>
 

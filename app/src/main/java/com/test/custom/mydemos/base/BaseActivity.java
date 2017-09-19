@@ -1,6 +1,5 @@
 package com.test.custom.mydemos.base;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -8,12 +7,8 @@ import android.view.View;
 import android.view.Window;
 
 import com.test.custom.mydemos.R;
+import com.test.custom.mydemos.utils.DialogManager;
 import com.test.custom.mydemos.utils.LogUtil;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 /**
  * Author 陈国武
@@ -39,42 +34,25 @@ public abstract class BaseActivity extends FragmentActivity {
         findViewById(R.id.tv_content).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showHintDialog();
+                showDialog();
             }
         });
     }
 
-    private AlertDialog dl ;
-    private void showHintDialog(){
-        if (null == dl){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(getAssetsTxt(getClass().getSimpleName()));
-        dl = builder.create();
-        }
-        dl.show();
-    }
 
-    private String getAssetsTxt(String fileName){
-        String assetsPath = "";
-        try {
-            String shortClassName = getIntent().getComponent().getShortClassName();
-            LogUtil.e("BaseActivity-------shortClassName--  "+shortClassName);
-            int i = shortClassName.indexOf(".", 1);
-            assetsPath = shortClassName.substring(1,i)+"/"+fileName+".txt" ;
-            LogUtil.e("BaseActivity-------assetsPath--  "+assetsPath);
-            InputStream is = getAssets().open(assetsPath);
-            InputStreamReader reader = new InputStreamReader(is,"gbk");
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            StringBuffer buffer = new StringBuffer();
-            String str;
-            while ((str = bufferedReader.readLine()) != null) {
-                buffer.append(str);
-                buffer.append("\n");
-            }
-            return buffer.toString();
-        } catch (IOException e) {
-            return "读取 Assets 下的文件出错 请查看Assets文件下的 "+assetsPath+" 路径下是否有文件 "+fileName+".txt";
-        }
+    private void showDialog(){
+        String simpleName = getClass().getSimpleName();//类名
+        String className = getIntent().getComponent().getClassName();
+        int position = className.indexOf(".",23);
+        int position2 = className.indexOf(".",24);
+        //模块名字
+        String molName = className.substring(position + 1, position2);
+        //课程名字
+        String path = molName +"/"+simpleName+".txt";
+        LogUtil.e("simpleName    " + simpleName);
+        LogUtil.e("className    " + className);
+        LogUtil.e("path    " + path);
+        DialogManager.getIns().showDialog(this,path);
     }
 
     protected abstract void setContentView();

@@ -1,0 +1,85 @@
+
+JNI
+  Java Native Interface
+  JNI是为 Java 而生
+  JNI是java虚拟机的部分
+
+
+什么时候用到JNI
+  java不能实现的时候
+  效率要求高的时候（图片处理）
+  需要访问一些现有的本地库（c语言写的so库）
+
+NDK
+  只是一些工具的集合，
+ 
+
+NDK 在 AS 上开发的配置过程
+  1、项目的 build.gradle 需要配置两个地方
+  android{
+
+     ...
+     ...
+
+     defaultConfig{
+
+       ...
+       ...
+
+       //下面的是需要配置的
+       externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"//添加对 c++ 的异常处理支持
+            }
+        }
+
+     }
+
+     buildTypes{
+
+       ...
+       ...
+
+       //下面是需要配置的
+       //添加 CMakeLists.txt （c文件的配置文件）
+       externalNativeBuild {
+            cmake {
+                path "CMakeLists.txt"
+            }
+        }
+       
+     }
+  } 
+
+  2、复制一份 CMakeLists.txt 到 app项目目录下。
+     CMakeLists.txt 里面的 add_library 块要配置需要加载的 c/c++ 文件路径，如果是自己建的 c/c++ 文件需要修改路径最后的文件名。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

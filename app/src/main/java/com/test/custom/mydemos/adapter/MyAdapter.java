@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.test.custom.mydemos.R;
-import com.test.custom.mydemos.utils.ClassUtils;
+import com.test.custom.mydemos.utils.DialogManager;
 import com.test.custom.mydemos.utils.LogUtil;
 
 /**
@@ -60,12 +60,34 @@ public class MyAdapter extends BaseAdapter {
         @Override
         public void onClick(View v) {
             String tag = (String) v.getTag();
+            LogUtil.e("tag   "+tag);
             int i = tag.indexOf("-");
             String actName = tag.substring(0, i);
             String act = packPath + actName + "."+ actName;
-            LogUtil.e("act"+act);
-            mContext.startActivity(new Intent(mContext, ClassUtils.getLocalClass(act)));
-            mContext.overridePendingTransition(R.anim.in,0);
+            LogUtil.e("act   "+act);
+
+
+            Class tt = null;
+            try {
+                tt = Class.forName(act);
+                mContext.startActivity(new Intent(mContext,tt));
+                mContext.overridePendingTransition(R.anim.in,0);
+            } catch (ClassNotFoundException e) {
+                //没有对应的 Activity
+                int position = act.indexOf(".",23);
+                int position2 = act.indexOf(".",24);
+                //模块名字
+                String molName = act.substring(position + 1, position2);
+                //课程名字
+                String path = molName +"/"+actName+".txt";
+                LogUtil.e("path ---- " + path);
+
+                DialogManager.getIns().showDialog(mContext,path);
+
+            }
+
+//            mContext.startActivity(new Intent(mContext, ClassUtils.getLocalClass(act)));
+//            mContext.overridePendingTransition(R.anim.in,0);
 
         }
     } ;

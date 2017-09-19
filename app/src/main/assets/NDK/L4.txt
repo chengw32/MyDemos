@@ -1,0 +1,187 @@
+
+---- 知识点 -----
+1、结构体
+  结构体本身只是一个类型。作用就是把一大堆的不同数据类型的成员变量装载在一起。  结构体名代表的只是结构体类型，定义一个结构体时系统并没有分配内存，只有在定义了结构体变量的时候才给变量分配内存，跟函数有区别。
+
+关键字：struct 
+
+定义一个结构体
+  struct MyStruct
+  {
+	char age[10];
+	int a;
+	char name[10];
+  };
+
+定义一个匿名结构体
+  struct
+  {
+	char age[10];
+	int a;
+	char name[10];
+  }test,test2,test3; testx 是这个结构体的全局变量名 
+匿名结构体的作用类似匿名内部了定义好了再其他地方就不能再定义出新的结构体。
+
+结构体初始化
+1、直接像数组一样赋 值（按里面的变量顺序赋值）；
+  struct MyStruct stru = {1,0,"sss"};
+
+2、单个变量赋值
+  stru.age = 10;
+  strcpy(stru.name,"abc"); 数组赋值需要用strcpy
+
+
+结构体指针
+  
+  struct MyStruct *str ;//结构体指针
+给指针赋值
+ struct MyStruct stru = {1,0,"sss"};
+ 1、str = stru ；
+ 2、先申请空间、然后初始化申请的空间的值。
+  str = （MyStruct *）malloc(sizeof(struct MyStruct)*4);(相当于申请四个 MyStruct 大小的空间)；
+  memset（str，0（初始化值），sizeof（struct MyStruct）*4）;//初始化分配下来的空间
+访问「结构体指针」里面的成员要用箭头
+  t->age = 1;
+  printf("age  %d ", t->age);
+
+
+结构体里面有函数指针
+int showMessage(int age,char *name){
+	printf("showMessage %s \n",name);
+	return 0;
+}
+
+struct MyStudy
+{
+	int age;
+	char *name;
+	int(*msg)(int tt, char *name);
+
+};
+int main(){
+	struct MyStudy study;
+	study.age = 40;
+	study.name ="wtf";
+	study.msg = showMessage;//先给函数指针赋值
+	study.msg(66, "ssss");//调用函数指针指向的函数
+	printf("结构体变量 %d %s %#x \n", study.age ,study.name,study.msg);
+	sysPause();
+}
+
+
+结构体里面添加结构体本身指针变量「手写单链表数据结构」
+struct LinkTest{
+	int tt;
+	LinkTest* link;//结构体本身指针
+};
+
+int insertEnd(LinkTest *link ,int tt){
+	//先申请一个空间
+	LinkTest *end = (LinkTest *)malloc(sizeof(LinkTest));
+	if (NULL == end)
+	{
+	//判空 是否申请成功
+		return 0;
+	}
+	//初始化变量
+	end->tt = tt;
+	end->link = NULL;
+
+	//LinkTest * p = link;
+	while (link->link != NULL)
+	{
+		//当前link不为空 将下一个节点的 link 赋值给 link；
+		link = link->link;
+	}
+	link->link = end;//将申请到的空间赋值给空的 link指针
+	return 0;
+}
+
+int main(){
+	LinkTest *linkTest;
+	linkTest = (LinkTest *)malloc(sizeof(LinkTest));
+	if (linkTest == NULL)
+	{
+		return 0;
+	}
+	linkTest->tt = 0;
+	linkTest->link = NULL;
+
+	for (int i = 0; i < 8; i++)
+	{
+	 insertEnd(linkTest, i);
+	}
+
+	while (linkTest->link != NULL)
+	{
+		printf("tt %d \n", linkTest->tt);
+		linkTest = linkTest->link;
+	}
+	sysPause();
+	return 0;
+}
+
+
+typedef 
+
+  给某个类型/结构体自定义一个命名
+  typedef int MyInt;
+  typedef char* String;
+  int main(){
+
+	MyInt a = 20;
+	String ss = "wtf";
+	printf("a= %d ss=%s", a, ss);
+	sysPause();
+  }
+
+  //给结构体 Test 自定义一个代理名 WTF。没有 typedef 关键字的时候 WTF 是这个结构的一个全局变量;
+  typedef struct Test
+  {
+	int a = 10;
+
+  }WTF;
+
+
+union 共用体
+  将不同的数据类型的数据放到同一个内存里面。但是只存储其中一个数据类型。公用体的占内存大小取所以数据类型最大的那个。
+
+  union MyUnion
+  {
+	int a;
+	char b;
+	float c;
+  };
+  int main(){
+
+	MyUnion u;
+	u.a = 10;
+	u.b = 'c';
+	u.c = 1.0;
+  }
+  上面打印出来只有 c 才有值。只存储最近赋值的变量。
+
+
+enum 枚举
+
+  enum MyEnum
+  { 
+	a,
+	b,
+	c,
+  };
+  系统默认 a = 0 ,b = 1;系统默认+1 。如果a 赋值10 则 b=11 。
+
+
+
+
+
+
+
+
+
+
+
+
+
+

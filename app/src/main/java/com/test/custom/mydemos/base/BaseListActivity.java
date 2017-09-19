@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.widget.ListView;
 
 import com.test.custom.mydemos.adapter.MyAdapter;
+import com.test.custom.mydemos.utils.LogUtil;
 
 /**
  * Author 陈国武
@@ -22,6 +23,7 @@ public abstract class BaseListActivity extends ListActivity {
         ListView listView = getListView();
         String[] uiLesson = getResources().getStringArray(getIdArrayValues());
         String className = getIntent().getComponent().getClassName();
+        LogUtil.e("className ---- "+className);
         int lastIndex = className.lastIndexOf(".")+1;
         listView.setAdapter(new MyAdapter(BaseListActivity.this,uiLesson,className.substring(0,lastIndex)));
 

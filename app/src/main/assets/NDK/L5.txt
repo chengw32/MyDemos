@@ -1,0 +1,126 @@
+
+----- 知识点 ----
+
+
+文件操作
+
+
+读文本文件
+
+  首先构建读文件通道（类似 java 创建文件流）
+  char *path = "D:\\c.txt";(c语言里反斜杠要两个)
+  FILE *file = fopen(path, "r");
+
+  //r 代表读取。w 代表写入（创建一个新文件 如果文件名存在，则清空内容视为新  文件）。a 文件末尾追加文件，如果文件不存在则创建。
+  
+  然后开始读取文件
+  char buff[50];
+  while (fgets(buff,50,file))
+   {
+ 	printf("%s",buff);
+   }
+
+  最后关闭通道
+  fclose(file);
+  
+
+写文本文件
+ 
+  首先构建写文件通道
+  char *path = "D:\\w.txt";(写入的文件名可以自己命名）
+  FILE *file = fopen(path, "w");
+
+  写入文件
+  char *MyFile = "wtf";
+  fputs(MyFile, filew);
+
+  关闭文件通道
+  fclose(filew);
+
+
+
+读写二进制文件
+
+  
+  int main(){
+	char *read_file = "D:\\read.exe";
+	char *write_file = "D:\\read_write.exe";
+        构建文件通道
+	FILE * read_fp = fopen(read_file, "rb");// rb 读取二进制文件 r 读取文本文件
+	FILE *write_fp = fopen(write_file, "wb");
+
+	char *buff[50];
+	int lenth;
+	while ((lenth = fread(buff,sizeof(char),50,read_fp)) != 0)
+	{
+		//写文件
+		fwrite(buff, sizeof(char), lenth, write_fp);
+	}
+	fclose(read_fp);
+	fclose(write_fp);
+	sysPause();
+ }
+
+
+
+二进制文件跟文本文件的区别：
+  
+  计算机的存储在物理上是二进制的   所以文本文件与二进制文件的区别并不是物理上的  而是逻辑上的。无论是文本文件  还是unicode 和ascii   这些都是文件的解释方式。也就是说是解释上的不同。文本文件解释的时候会吧 \n 解释成换行
+
+
+
+读取文件大小
+
+
+
+文件加/解密
+  fgetc 循环读取文件 （EOF 文件读写完成了 fgetc 返回的是 int 型数据）
+  fputc 写入到另个加密文件（写入的字节进行位运算 就是加密的原理）
+  
+
+
+预处理
+
+  1、#defind 可以用 #defind 定义一个别名 这个别名可以完全替代它所代表的内容。它只是纯字符串替换，不会检测类型。说白了就是一个单纯的替换功能
+  例如 #defind PPP 5;那么 PPP 完全等于 「5;」 包括分号。
+  例如 #defind PPP（x,y） x>y?x:y;
+  应用在什么地方？应用在重复代码的地方。
+
+  2、#include 这个命令类似于吧 #include 后面的文件直接赋值到调用的程序里。
+  项目里新建一个 txt 文件。里面只有简单的 printf 代码。在main函数里面直接调用 #include xx.txt ;
+
+
+
+条件编译
+
+  #ifdef 必须以 #endif结束。成对出现的
+
+  例如：
+  #ifdef
+
+  #ifdef
+  #endif
+
+  #endif
+  中间的是一对。外面的是一对，从最接近的算起。跟函数的括号一样。
+  
+  有if 就有 else 
+  #ifdef
+  #else
+
+  举个例子
+  #define M 
+
+  int main(){
+	int a = Max(5, 6);
+	printf("%d \n", a);
+   //如果没有 #define 走 else 
+   #ifdef M
+	printf("wtf \n");
+   #else
+	printf("wtf2 \n");
+   #endif
+	sysPause();
+  }
+
+

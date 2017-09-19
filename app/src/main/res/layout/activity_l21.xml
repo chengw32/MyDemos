@@ -5,12 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ui.L11.L11">
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:src="@drawable/ic_heart"
-        android:layout_height="match_parent"/>
+    tools:context="com.test.custom.mydemos.NDK.L10.L10">
 
 </android.support.constraint.ConstraintLayout>
