@@ -3,9 +3,10 @@ package com.test.custom.mydemos.Ui.L4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
-import com.test.custom.mydemos.base.BaseActivity;
 import com.test.custom.mydemos.R;
+import com.test.custom.mydemos.base.BaseActivity;
 
 public class L4 extends BaseActivity {
 
@@ -14,7 +15,8 @@ public class L4 extends BaseActivity {
         super.onCreate(savedInstanceState);
 
 
-        findViewById(R.id.tag).setOnClickListener(new View.OnClickListener() {
+        TextView viewById = (TextView) findViewById(R.id.tag);
+        viewById.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(L4.this,MirrorActivity.class));

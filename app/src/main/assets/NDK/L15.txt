@@ -1,2 +1,118 @@
 
 --- 知识点 ---
+
+
+shell 脚本 （.sh 文件）解释型语言
+
+shell命令
+
+  新建一个 .sh 文件 ：touch xx.sh 
+  进入脚本编辑模式：vim xx.sh
+  执行脚本：./xx.sh 
+  修改脚本文件读写权限：chmod 777 xx.sh 
+  退出并保存脚本：:wq 
+  
+
+
+shell语言都要给脚本添加头文件
+#!/bin/bash 
+
+
+
+输出语句 $ 拼接符号 例如：
+  echo "传入值  $1"
+  echo "传入值  $2"
+
+  往echo语句里面传入值：./xx.sh 11 22 （第一个值传给 $1 以此类推，传入的值多了没有用 而且严格对应位置 比如接收参数只写了 $2 只传入一个参数则这个 $2 接收不到参数）
+
+
+
+for循环
+  遍历出参数
+    for param in "$@"
+    do
+      echo "参数： $param"
+    done
+
+    "$@"代表所有参数的集合
+    done 代表循环结束 一定要写
+    如果是普通的容器循环用 itme 如果是输出参数的用 param
+
+  普通的for循环
+    list=" a b c "
+    for item in $list
+    do
+      echo "listValue $item"
+    done
+  
+
+
+if语句
+  if [ -x $mydir] && [ .. ]
+  then
+    ...(做事情）
+  else
+    ...
+  fi （结束标志）
+
+  if 语句之后一定要加 then 
+  if 语句的括号前后一定要加空格
+  if 语句一定要有结束标记
+
+
+
+switch语句
+    case $1 in
+    22)
+    echo "22";;
+    33)
+    echo "33";;
+    *)
+    echo "moren";;
+    esac
+
+  in 表示开始条件判断
+  用反括号表示 case 其中一种条件。
+  用双分号 结束一种条件的判断
+  用 * 号表示 其他情况
+  用 esac 表示语句结束
+
+
+while循环
+  while [ $a -gt 0 ]
+  do
+    echo "while循环 $a"
+    a=$[ $a - 1 ]
+    if [ $a -eq 5 ]
+    then
+       echo "跳出循环"
+    break
+    fi
+  done
+
+  -eq           //等于
+  -ne           //不等于
+  -gt            //大于
+  -lt            //小于
+  ge            //大于等于
+  le            //小于等于
+  done 结束
+  跳出while循环 break
+
+  
+
+写文件
+  file=fileTest
+  echo "wtf">$file
+
+  > 直接写入 原来的内容全部覆盖
+  >> 追加
+
+
+查找文件
+  grep -n bin xxx文件
+
+
+
+
+

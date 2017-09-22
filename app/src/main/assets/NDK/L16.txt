@@ -1,0 +1,9 @@
+
+
+so插件化
+
+生成 so 文件：gcc -fPIC -shared xxx.c -o so库文件名.so
+
+  -fPIC 压制警告
+  -shared 生成动态库分享出去
+  -o 生成的目标文件
