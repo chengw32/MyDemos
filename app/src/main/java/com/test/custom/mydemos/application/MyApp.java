@@ -10,6 +10,9 @@ import android.app.Application;
 
 public class MyApp extends Application {
 
+    static {
+        System.loadLibrary("native-lib");
+    }
     private static MyApp mInstance ;
 
     @Override

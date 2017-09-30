@@ -1,0 +1,20 @@
+
+（指针注意判空）
+JNI访问JAVA数组
+
+   （qsort(...) 需要引用 stdlib.h 头文件 ）
+    //1、拿到数组元素
+    jintArray * elements = (*env)->GetIntArrayElements(env,jiarray,NULL);
+    jsize * length = (*env)->GetArrayLength(env,jiarray);
+
+//    2、排序
+//    第一个参数 base 是 需要排序的目标数组名（或者也可以理解成开始排序的地址，因为可以写&s[i]这样的表达式）
+//    第二个参数 num 是 参与排序的目标数组元素个数
+//    第三个参数 width 是单个元素的大小（或者目标数组中每一个元素长度），推荐使用sizeof(s[0]）这样的表达式
+//    第四个参数 compare 就是让很多人觉得非常困惑的比较函数啦。
+    qsort(elements,length, sizeof(jint),compare);
+//    3、重新赋值 并释放内存
+//    第二个参数是被赋值对象
+//    第三个参数是需要赋的值
+//    第四个参数是模式
+    (*env)->ReleaseIntArrayElements(env,jiarray,elements,JNI_COMMIT);

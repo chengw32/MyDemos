@@ -1,9 +1,43 @@
 
 
-so插件化
+执行当前文件夹下的某个可执行文件 ./xxx 
 
-生成 so 文件：gcc -fPIC -shared xxx.c -o so库文件名.so
+
+so插件化
+ 
+  原理就是利用 Linux 系统下的 dlfcn.h 能执行某个路径下的so文件里面的方法来达到调用的目的。
+  用处：就是在不改变方法名跟参数的情况下 动态改变方法的执行逻辑跟返回值
+  比如：用户调用某个so ，由于计算逻辑改变，用户只需更新 so 文件调用不用变但是获取的值已经改变了。
+
+
+
+
+生成目标 so 文件：gcc -fPIC -shared xxx.c -o so库文件名.so  目标 so 文件只是实现方法
 
   -fPIC 压制警告
   -shared 生成动态库分享出去
   -o 生成的目标文件
+
+
+
+
+生成 Linux 下的可执行文件：gcc -rdynamic -o xx(生成的可执行文件的文件名) xx.c(被编译的文件) -ldl
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <dlfcn.h>
+typedef	int (*Add)(int ,int);	
+int main(){
+  
+  void *handle = dlopen("./xxx.so",RTLD_LAZY);
+  Add add = NULL ;
+  *(void **)(&add) = dlsym(handle,"add");
+  int result = add(2,5);
+  printf("%d\n" ,result);
+  return 0 ;
+}
+
+so 文件里面的某个 .c 文件代码
+int add(int a,intb){
+return a*b;
+}

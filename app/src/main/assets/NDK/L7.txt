@@ -1,3 +1,88 @@
 
 -- 知识点--
 
+
+
+UUID
+    UUID.randomUUID().toString();
+
+
+
+
+JNI访问JAVA里的非static方法
+
+    （该代码展示效果在第六节课）
+    jclass clz = (*env)->GetObjectClass(env,jobj);
+    jmethodID jid = (*env)->GetMethodID(env,clz,"getNumFromJava","(I)I");
+    //第四个参数开始是指需要传的参数，多个参数在后面添加就好
+    jint valueFromJava = (*env)->CallIntMethod(env,jobj,jid);
+
+
+
+
+
+JNI访问JAVA里的static方法
+
+   jclass clz = (*env)->GetObjectClass(env,jobj);
+    jmethodID jid = (*env)->GetStaticMethodID(env,clz,"getStaticNumFromJava","(I)I");
+    //第四个参数开始是指需要传的参数，多个参数在后面添加就好
+    jint valueFromJava = (*env)->CallStaticIntMethod(env,clz,jid,10);(第二个参数跟访问非静态方法的时候不一样 直接copy的时候需要注意)
+
+
+
+
+
+JNI访问JAVA的构造方法
+
+    （访问构造方法跟访问方法区别是：构造方法没有用的桥接函数传过来的 jobject 而访问方法的时候是直接用到 jobject）
+
+    //1、通过类的路径从jvm找到这个类 第三个参数 可以看这个类的包名
+    jclass  jclz = (*env)->FindClass(env,"java/util/Date");
+
+    //2、找到构造方法的id 第三个参数 构造方法都穿这个
+    jmethodID jmid = (*env)->GetMethodID(env,jclz,"<init>","()V");
+
+    //3、拿到构造方法id后构造一个对象
+    jobject jobject = (*env)->NewObject(env,jclz,jmid);
+
+    //4、通过类拿到类里面的某个方法的id
+    jmethodID methodId = (*env)->GetMethodID(env,jclz,"getTime","()J");
+
+    //5、用构造出来的对象调类里面的某个方法 获取该方法返回的值
+    jlong  jlongValue = (*env)->CallLongMethod(env,jobject,methodId);
+   
+
+
+
+
+JNI打印日志在Android控制台输出
+
+    1、导入log头文件 #include <android/log.h>
+    2、定义宏方法 #define loge(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)（第一个参数对应Android的log级别、第三个参数__VA_ARGS__ 是c/c++输出语句的一个可变参数的宏，很少人知道这个宏，这个可变参数的宏是新的C99规范中新增的，目前似乎只有gcc支持（VC6.0的编译器不支持）。宏前面加上##的作用在于，当可变参数的个数为0时，这里的##起到把前面多余的","去掉的作用,否则会编译出错, 你可以试试。）
+2+    3、loge("xxx");
+
+
+
+
+
+JNI里c的中文字符串乱码问题
+
+    java: 内部用的是Utf-16 16bit 无论是中文还是英文用的都是2个字节
+    JNI: utf-8 可变字长的Unicode编码方式 ：英文一个字节 中文三个字节
+    c/c++语言：英文都是 ASCII 一个字节 中文是GB2312编码 2个字节
+    
+    乱码问题
+    
+    （申请了内存空间 记得初始化值）
+    一个方式是利用 Window.h 的 WideCharToMultiByte方法。该方法的作用是将JNI编码格式的的jcahr转换成c/c++编码格式的char*
+    另一个是利用java类的String的构造方法。
+    
+
+
+
+
+
+
+
+
+

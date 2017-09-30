@@ -1,20 +1,56 @@
 
 JNI
+
   Java Native Interface
   JNI是为 Java 而生
   JNI是java虚拟机的部分
 
 
+
 什么时候用到JNI
+
   java不能实现的时候
   效率要求高的时候（图片处理）
   需要访问一些现有的本地库（c语言写的so库）
 
+
+
+JNI基本数据类型
+    jboolean; 
+    jbyte;    
+    jchar;    
+    jshort;   
+    jint;     
+    jlong;    
+    jfloat;   
+    jdouble;
+
+JNI基本数据类型对应的C类型是根据芯片不同而不同
+
+
+JNI引用类型
+jstring
+jobject
+
+
+JNI基本数据类型数组
+//类似这样的公司 type[] jTypeArray;
+byte[] jByteArray;
+
+
+JNI引用类型数组
+object[]/String[] jobjectArray;
+
+
 NDK
+
   只是一些工具的集合，
  
 
+
+
 NDK 在 AS 上开发的配置过程
+
   1、项目的 build.gradle 需要配置两个地方
   android{
 
@@ -26,7 +62,7 @@ NDK 在 AS 上开发的配置过程
        ...
        ...
 
-       //下面的是需要配置的
+      
        externalNativeBuild {
             cmake {
                 cppFlags "-frtti -fexceptions"//添加对 c++ 的异常处理支持
@@ -40,7 +76,7 @@ NDK 在 AS 上开发的配置过程
        ...
        ...
 
-       //下面是需要配置的
+       
        //添加 CMakeLists.txt （c文件的配置文件）
        externalNativeBuild {
             cmake {
@@ -52,27 +88,103 @@ NDK 在 AS 上开发的配置过程
   } 
 
   2、复制一份 CMakeLists.txt 到 app项目目录下。
-     CMakeLists.txt 里面的 add_library 块要配置需要加载的 c/c++ 文件路径，如果是自己建的 c/c++ 文件需要修改路径最后的文件名。
+     CMakeLists.txt 里面的 add_library 块配置的是 c/c++ 文件路径，这个文件是要被 java 层加载的。该路径是已 app 为基础而不是整个项目。如果是自己建的 c/c++ 文件需要修改路径最后的文件名。
 
 
 
 
+JAVA调用C的流程
+
+    System.loadLibrary("native-lib") 的时候去加载 CMakeLists.txt 
+配置的路径下的库（.c文件） 然后调用的时候触发 native 方法实现 java 调用 c/c++ 语言
 
 
 
 
+实现步骤
+    
+    首先要注意两点：
+
+    1、被调用的 c 的路径跟文件名包括后缀都是由 CMakeLists.txt 配置的
+    2、CMakeLists.txt 配置的路径是以 app 项目路径为基础而不是整个项目路径为起点。
+
+
+    实现 java 调用 c/c++ 的步骤
+
+    1、在app项目里的 main 文件夹下新建一个名字为 cpp 的文件夹。在文件夹里新建一个 xx.c 文件。（文件夹命名跟 c/c++ 文件名需要跟CMakeLists.txt 配置的一致包括后缀）
+    2、新建一个 java 类。在里面写个 native 方法。
+    3、用 javah 命令编译 java 文件得到一个 .h文件 （需要里面的 JIN 语法。也可以直接写 ）。
+    4、将 .h 文件的全部代码复制到第一步新建的 .c 文件。然后实现里面的方法。
+    5、加载库（即 第一步新建并且实现了方法的 .c 文件）
+        static {System.loadLibrary("xxx");}（xxx 不需要后缀）
+    6、调用第二步的 native 方法。
 
 
 
 
+静态库跟动态库
+
+   都是函数库
+
+   静态库： .a / .lib 在编译期间已经链接完成 运行期间直接调用
+   动态库：.dll / .so  运行期间时加载
+
+
+
+JNIEnv 
+   在 jin.h 头文件里面 里面有一堆函数指针 是JNIEnv调用c用的
+
+   JNIEnv在C/C++的区别
+   c：
+     结构体指针的别名 二级指针
+   c++：
+     结构体别名 一级指针
+
+
+   
+JNI非静态方法的调用
+  
+   在 c 文件静态跟非静态的区别
+       
+        静态 (JNIEnv *, jclass);
+        非静态 (JNIEnv *, jobject);
+
+   非静态方法需要那个类的对象去调用类里面的方法所以参数里面是 jobject 代表的是这个类的对象。然后通过 jclass clz = (*env)->GetObjectClass(env,jobj); 获取 jclass 。就是中间多了这步转换。
 
 
 
 
+JNI访问JAVA里面的成员变量并改变值
+
+    //1、从 jobject 获取 jclass
+    jclass clz = (*env)->GetObjectClass(env,jobj);
+    //2、从 jclass 获取 变量的id ,第三个参数是变量名，第四个参数是类型签名
+    //关于类型签名可以用 [javap -s xx.class] 查看。 (javap -s 只能对 .class 文件有效。 calss文件 通过 javac 编译)
+    jfieldID  jfid = (*env)->GetFieldID(env,clz,"t","Ljava/lang/String;");
+    //3、从 jobject 得到成员变量对应的值 这个值只有 jni 认识
+    jstring jstr = (*env)->GetObjectField(env,jobj,jfid);
+    //4、将 jni 认识的字符串转换成 c 认识字符串
+    //最后一个参数是boolean类型表示这个指针是否是复制了一份的
+    //是这个函数的返回值 而不是传进去的 用来判断这个指针是否需要释放
+    char *c_char = (*env)->GetStringUTFChars(env,jstr,NULL);
+    //5、用 c 语言修改值
+    char *c = "wtf" ;
+    strcat(c_char,c);//需要引入 string.h 头文件
+    //6、将 c 语言的字符串转换成 jin 认识的字符串
+    jstring jstrBack = (*env)->NewStringUTF(env,c_char);
+    //7、将转换好的字符串赋值回从java端来的 jobject
+    (*env)->SetObjectField(env,jobj,jfid,jstrBack);
+    //8、释放指针
+    (*env)->ReleaseStringChars(env,jstrBack,c_char);
 
 
 
+JNI访问JAVA里面的static成员变量并改变值
 
+    跟上面步骤一样不一样的地方：
+    获取变量Id的时候用 GetStaticFieldId
+    获取变量值的时候用 getStaticIntField
+    设置变量值的时候用 setStaticIntField
 
 
 
