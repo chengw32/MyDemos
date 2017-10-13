@@ -1,0 +1,96 @@
+
+
+ cpu 只能识别 0101 二进制
+
+c/c++文件怎么编译成二进制文件？（java文件 还有个虚拟机过程）
+
+   1、编译阶段
+      
+      windows 平台 xxx.c是编译成xxx.obj （用vs 开发的话在项目的debug文件夹）
+      Linux 平台是变成成 xxx.o 文件
+  
+   2、链接
+      
+      链接 .o .so 文件
+
+
+
+将 c/c++ 经过编译、链接编译成二进制文件 是由编译器完成的
+
+
+
+编译器如何知道该编译哪些 .c 文件该链接哪些 .o 文件
+
+    编译规则：
+  
+        eclipse:   GUN 编译器支持的编译规则  Android.mk
+        Android studio ：LLVM 编译器支持的编译规则  cmaklist.txt
+
+    
+    无论是Android.mk还是cmaklist.txt编译规则都必须包含两个内容
+   
+        1、指定需要编译那些 .c 文件
+        2、需要指定链接哪些动态库 
+
+
+
+
+
+native 关键字
+
+    jvm 在查找方法的时候先判断方法的 flags 是否是 ACC_NATIVE 。如果是 native 方法则去native方法栈空间找 如果不是 则在方法区找
+
+   （方法的flags可以通过命令 javap -s -p -v xxx.class 查看。得先编译成class文件）
+
+
+
+
+
+System.loadLibrary("xxx");
+
+     loadLibrary 做了什么 ？为什么调用了这个方法 c/c++就可以被jvm调用
+
+     public static void loadLibrary(String libname) {
+        Runtime.getRuntime().loadLibrary0(VMStack.getCallingClassLoader(),         libname);
+     }
+   
+	Runtime.getRuntime() 单例模式获取 Runtime 对象，调用 loadLibrary。
+	
+ 	loadLibrary 有两个参数 一个ClassLoder 、一个是库名字。
+	
+	》ClassLoder 通过VMStack.getCallingClassLoader()获取。
+	》库名需要传入。
+
+    那么如何 loadLibrary
+	
+	1、找到库
+		
+		>找库通过 classLoader.findLibrary(libraryName);
+
+		>classLoder对象是ClassLoder的子类BaseDexClassLoder的子类PathClassLoder调用findLibrary。但是PathClassLoder的findLibrary直接super。所以真正findLibrary的是BaseDexClassLoder.
+
+		>BaseDexClassLoder的findLibrary里面调用pathList.findLibrary
+
+		>pathList.findLibrary
+		首先 System.mapLibraryName(libname);（这里的System是在libcore里面的）mapLibraryName的时候会根据不同架构（不同的架构是在安装的时候区分开来的）去查找对应的库。然后补全库的全名包括后缀是.so还是.c .dll;
+		然后 根据全名 拿到绝对路径 。找库的绝对路径从2个地方找。
+		1、在应用项目下的libs文件夹下的库 /data/app/xxx包名/lib/x86或者armv7或者arm
+		2、通过System.getProperty("java.library.path")目录下找。该目录在手机系统里面 一个是系统路径：/system/lib 一个是厂商路径：/vendor/lib 	而不再项目里面。room开发的库就可以放在这里面（系统目录可以通过 adb shell 打开）
+			
+	2、加载库
+
+
+
+
+
+动态注册 native 方法
+
+  
+
+
+
+
+
+
+
+

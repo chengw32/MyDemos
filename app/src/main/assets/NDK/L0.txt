@@ -1,0 +1,15 @@
+
+
+两步配置adb环境配置
+
+	》变量名 android 变量值 F:\AS\platform-tools （其实就是把adb.exe所在的目录配置到环境变量）
+	>>变量名 path 变量值 %android%; 
+
+
+
+
+
+需要重复多看几次的课程 
+
+	L9 jni源码分析
+	L11 增量更新/插件化/热更新原理

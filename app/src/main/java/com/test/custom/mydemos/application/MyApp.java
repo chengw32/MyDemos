@@ -12,7 +12,9 @@ public class MyApp extends Application {
 
     static {
         System.loadLibrary("native-lib");
+        System.loadLibrary("bzip");
     }
+
     private static MyApp mInstance ;
 
     @Override

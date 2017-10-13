@@ -106,3 +106,81 @@ JNIEXPORT void JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_getArrayFromJava
 //    第四个参数是模式
     (*env)->ReleaseIntArrayElements(env,jiarray,elements,JNI_COMMIT);
 }
+//引用类型数组
+JNIEXPORT jobjectArray JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_getStringArrayFromJNI
+        (JNIEnv * env, jobject jobj, jint jsize){
+
+    jobjectArray jarray;
+    int i;
+    jclass jclz = (*env)->FindClass(env,"java/lang/String");
+    if (jclz == NULL){
+        return NULL;
+    }
+    jarray = (*env)->NewObjectArray(env,jsize,jclz,NULL);
+    for ( i = 0; i < jsize; i++) {
+        char *strs = (char *)malloc(25);
+        if (strs == NULL){
+            loge("*strs=null");
+            return NULL;
+        }
+        memset(strs,0,25);
+        sprintf(strs,"JNI-%d",i);
+        jstring jstr = (*env)->NewStringUTF(env,strs);
+        if (jstr == NULL){
+            loge("jstr=null");
+            return NULL;
+        }
+        (*env)->SetObjectArrayElement(env,jarray,i,jstr);
+        free(strs);
+        strs = NULL ;
+    }
+    return jarray;
+}
+//JNI引用
+jobject globalObj ;
+JNIEXPORT jobject JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_creatRefInJNI
+        (JNIEnv * env, jobject jobj){
+//    局部引用
+//    jobject  jobj = (*env)->NewObject(env,jclz,methodId);
+//    全局引用
+    jobject bojt = (*env)->NewStringUTF(env,"not global ref");
+    return globalObj;
+}
+
+
+//JNI全局引用
+JNIEXPORT jobject JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_getGlobalRefFromJNI
+        (JNIEnv * env, jobject jobje){
+    jobject  obj = (*env)->NewStringUTF(env,"wtf");
+    globalObj = (*env)->NewGlobalRef(env,obj);
+    return globalObj;
+}
+
+
+//异常处理
+JNIEXPORT jobject JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_exceptionFromJNI
+        (JNIEnv * env, jobject jobje){
+
+    jclass clz =(*env)->GetObjectClass(env,jobje);
+    (*env)->GetFieldID(env,clz,"tt","Ljava/lang/String");
+    jthrowable exthrow = (*env)->ExceptionOccurred(env);
+    if (exthrow !=  NULL){
+        (*env)->ExceptionClear(env);
+        jclass  clz ;
+        clz = (*env)->FindClass(env,"java/lang/Exception");
+        if (clz == NULL){
+            return NULL;
+        }
+        (*env)->ThrowNew(env,clz,"GetFieldID Exception");
+    }
+    return globalObj;
+}
+
+
+//缓存
+JNIEXPORT jobject JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_cacheFromJNI
+                          (JNIEnv * env, jobject jobje){
+
+
+}
+

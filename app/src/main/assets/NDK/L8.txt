@@ -8,13 +8,141 @@ JNI访问JAVA数组
     jsize * length = (*env)->GetArrayLength(env,jiarray);
 
 //    2、排序
+      qsort(elements,length, sizeof(jint),compare);
 //    第一个参数 base 是 需要排序的目标数组名（或者也可以理解成开始排序的地址，因为可以写&s[i]这样的表达式）
 //    第二个参数 num 是 参与排序的目标数组元素个数
 //    第三个参数 width 是单个元素的大小（或者目标数组中每一个元素长度），推荐使用sizeof(s[0]）这样的表达式
 //    第四个参数 compare 就是让很多人觉得非常困惑的比较函数啦。
-    qsort(elements,length, sizeof(jint),compare);
-//    3、重新赋值 并释放内存
+    
+//    3、重新赋值 并释放内存 操作数组的时候都必须执行这个释放动作
+      (*env)->ReleaseIntArrayElements(env,jiarray,elements,JNI_COMMIT);
 //    第二个参数是被赋值对象
 //    第三个参数是需要赋的值
 //    第四个参数是模式
-    (*env)->ReleaseIntArrayElements(env,jiarray,elements,JNI_COMMIT);
+    
+
+
+
+JNI返回引用类型数组
+ jobjectArray jarray;
+    int i;
+    jclass jclz = (*env)->FindClass(env,"java/lang/String");
+    if (jclz == NULL){
+        return NULL;
+    }
+    //新建object数组
+    jarray = (*env)->NewObjectArray(env,jsize,jclz,NULL);
+    for ( i = 0; i < jsize; i++) {
+        char *strs = (char *)malloc(25);
+        if (strs == NULL){
+            loge("*strs=null");
+            return NULL;
+        }
+        memset(strs,0,25);//申请空间后初始化值
+        sprintf(strs,"JNI-%d",i);
+        jstring jstr = (*env)->NewStringUTF(env,strs);
+        if (jstr == NULL){
+            loge("jstr=null");
+            return NULL;
+        }
+        (*env)->SetObjectArrayElement(env,jarray,i,jstr);
+        free(strs);
+        strs = NULL ;
+    }
+
+
+
+JNI引用
+    
+
+   关于释放
+   1、方法执行完 jvm 自动释放用过的内存。
+   2、手动释放 (*env)->DeleteGlobalRef()
+
+   引用为什么要及时释放？
+   JNI系统有个局部引用表，该表由系统配置，大小为512个。所以局部引用数量是有限制的，所以要及时释放。
+
+
+
+   
+
+1、局部引用（不能再多线程使用）
+  
+   FindClass、NewObject、GetObjectClass、NewCharArray、NewLocalRef等等 用于生成非基本类型数据结构的方法都是用于生成局部引用。
+
+    例如：
+    jclass jclz = (*env)->FindClass(xxx);
+    jobject obj = (*env)->NewObject(xxx);
+
+    局部引用不能再另个方法调用的原因是 局部引用所在的方法执行完后该引用就被回收
+
+2、全局引用（跨 线程/方法 使用）
+   
+    唯一生成全局引用的方法： globalObj = (*env)->NewGlobalRef(env,obj);
+   
+    全局引用一定要回收不然必定内存泄漏 回收方法 (*env)->DeleteGlobalRef(xxx)
+
+
+3、弱全局引用（跨 线程/方法 使用）
+
+    唯一生成弱全局引用的方法 (*env)->NewWeakGlobalRef(env,obj);
+ 
+    随时可以回收
+
+
+
+
+
+JNI异常处理
+
+    JNI层出现异常 JNI层不会出错 但是JAVA层会崩
+
+例如：
+
+    (*env)->GetFieldID(env,clz,"tt","Ljava/lang/String");
+     以上代码如果 java 层没有 tt 这个成员变量 JNI层不会崩 但是JAVA层直接报异常 java.lang.NoSuchFieldError
+    
+    1、解决JAVA层不会崩 但是 Java层不知道什么异常
+       直接在JNI层清空异常（什么时机判断有异常并清空 这个得靠意识）
+       清空异常 ：
+         jthrowable exthrow = (*env)->ExceptionOccurred(env);
+         if (exthrow !=  NULL){
+            (*env)->ExceptionClear(env);
+         }
+
+    2、JAVA层捕获到JNI层发生的异常（即 在JNI层主动返回异常）
+        
+       clz = (*env)->FindClass(env,"java/lang/Exception");
+        if (clz == NULL){
+            return NULL;
+        }
+        (*env)->ThrowNew(env,clz,"GetFieldID Exception");
+
+         jni层 ThrowNew 后如果在 JAVA层不去 try/catch 则 java层会崩 因为这是个异常在java层必须处理（即 try/catch）
+        
+       
+
+
+
+JNI缓存
+
+  static局部引用缓存：在某方法内生成的局部引用，用static修饰后 该引用会直接保存在静态区 只要调用该方法就可以直接拿来用 而不需要重新生成。但是其他方法不能调用该引用。
+
+  static全局引用：只能在本文件使用、而且只能在定义之后使用
+     
+        
+缓存跟弱引用一起使用注意事项：
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

@@ -26,20 +26,20 @@
     </array>
 
     <array name="ui">
-        <item>L3-画笔基本使用__圆形进度条__画小黄人</item>
-        <item>L4-各种渲染__shader__圆形头像__BitmapShader__平铺模式__添加矩阵（矩阵旋转角度、缩放等操作）__shapeDrawable</item>
-        <item>L5-xfermode的几种叠加模式__</item>
+        <item>L3-画笔基本使用\n——圆形进度条\n——画小黄人</item>
+        <item>L4-各种渲染\n——shader\n——圆形头像\n——BitmapShader\n——平铺模式\n——添加矩阵（矩阵旋转角度、缩放等操作）\n——shapeDrawable</item>
+        <item>L5-xfermode的几种叠加模式\n——</item>
         <item>L6-MaskFilter</item>
-        <item>L7-Canvas__Region 区域的叠加方式__ canvas 的平移、旋转、缩放、裁切操作__ saveLayer ---</item>
-        <item>L8-实战案例__滑动图片变色(自定义 Drawable)__搜索框动画</item>
+        <item>L7-Canvas\n——Region 区域的叠加方式\n——canvas 的平移、旋转、缩放、裁切操作\n——saveLayer\n——</item>
+        <item>L8-实战案例\n——滑动图片变色(自定义 Drawable)\n——搜索框动画</item>
         <item>L9-贝塞尔曲线-案例 qq消息气泡拖拽销毁</item>
-        <item>L10-PathMeasure__水波纹效果加小船动画( Matrix 如果是成员变量要重置)__mPathMeasure.getSegment()</item>
-        <item>L11-SVG-</item>
+        <item>L10-PathMeasure\n——水波纹效果加小船动画( Matrix 如果是成员变量要重置)\n——mPathMeasure.getSegment()</item>
+        <item>L11-SVG\n——</item>
         <item>L13--事件分发机制</item>
-        <item>L16--属性动画__动画分类__各种插值器__估值器</item>
-        <item>L17--动画案例__直播鲜花效果</item>
+        <item>L16--属性动画\n——动画分类\n——各种插值器\n——估值器</item>
+        <item>L17--动画案例\n——直播鲜花效果</item>
         <item>L18--动画案例 splash 动画</item>
-        <item>L19--手写动画框架-</item>
+        <item>L19--手写动画框架\n——</item>
         <item>L20--ViewPager翻页效果</item>
         <item>L21--MaterialDesign</item>
 
@@ -51,16 +51,20 @@
 
     </array>
     <array name="ndk">
+        <item>L0--abd环境配置\n——</item>
         <item>L1--c语言基本知识</item>
-        <item>L2--指针定义__指针运算__数组指针__指针类型</item>
-        <item>L3--字符串使用__函数指针__内存分配malloc</item>
-        <item>L4--结构体__结构体指针__结构体里面含函数指针变量__单向链表__typedef__union 共用体__enum 枚举</item>
-        <item>L5--文件io-文件加解密-预处理#defind-条件语句</item>
-        <item>L6--as开发NDK环境搭建__简单实现java调用c__静态库跟动态库__JNIEnv了解__JNI访问Java成员变量__NI访问Java静态成员变量</item>
-        <item>L7--JNI访问Java普通/静态方法__构造方法__JNI打印日志在Android显示__JNI里c的中文字符串乱码问题</item>
-        <item>L8--JNI访问数组__基本/引用类型数组__</item>
+        <item>L2--指针定义\n——指针运算\n——数组指针\n——指针类型</item>
+        <item>L3--字符串使用\n——函数指针\n——内存分配malloc</item>
+        <item>L4--结构体\n——结构体指针\n——结构体里面含函数指针变量\n——单向链表\n——typedef\n——union 共用体\n——enum 枚举</item>
+        <item>L5--文件io\n——文件加解密\n——预处理#defind\n——条件语句</item>
+        <item>L6--as开发NDK环境搭建\n——简单实现java调用c\n——静态库跟动态库\n——JNIEnv了解\n——JNI访问Java成员变量\n——NI访问Java静态成员变量</item>
+        <item>L7--JNI访问Java普通/静态方法\n——构造方法\n——JNI打印日志在Android显示\n——JNI里c的中文字符串乱码问题</item>
+        <item>L8--JNI访问数组\n——基本/引用类型数组\n——引用\n——局部引用/全局引用/弱全局引用\n——异常\n——缓存\n——缓存跟引用同时用的问题（static）</item>
+        <item>L9--c/c++文件怎么编译成二进制文件\n——native 关键字\n——编译规则\n——GUN/LLVM编译器\n——关于System.loadLibrary("xx")如何加载库\n——动态注册native方法</item>
         <item>L10--</item>
-        <item>L15--阿里云服务器配置__shell脚本语句</item>
+        <item>L11--增量更新流程\n——</item>
+        <item>L12--增量更新\n——在Linux下生产差分包\n——合并差分包生成新的apk\n——cmakelist添加整个目录下的c文件为库</item>
+        <item>L15--阿里云服务器配置\n——shell脚本语句</item>
         <item>L16--so插件化</item>
 
     </array>

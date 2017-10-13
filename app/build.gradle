@@ -15,6 +15,9 @@ android {
             cmake {
                 cppFlags "-frtti -fexceptions"
             }
+            ndk {
+                abiFilters "armeabi","x86"
+            }
         }
     }
     buildTypes {

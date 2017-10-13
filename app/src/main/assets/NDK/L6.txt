@@ -158,22 +158,29 @@ JNI访问JAVA里面的成员变量并改变值
 
     //1、从 jobject 获取 jclass
     jclass clz = (*env)->GetObjectClass(env,jobj);
+
     //2、从 jclass 获取 变量的id ,第三个参数是变量名，第四个参数是类型签名
     //关于类型签名可以用 [javap -s xx.class] 查看。 (javap -s 只能对 .class 文件有效。 calss文件 通过 javac 编译)
     jfieldID  jfid = (*env)->GetFieldID(env,clz,"t","Ljava/lang/String;");
+
     //3、从 jobject 得到成员变量对应的值 这个值只有 jni 认识
     jstring jstr = (*env)->GetObjectField(env,jobj,jfid);
+
     //4、将 jni 认识的字符串转换成 c 认识字符串
     //最后一个参数是boolean类型表示这个指针是否是复制了一份的
     //是这个函数的返回值 而不是传进去的 用来判断这个指针是否需要释放
     char *c_char = (*env)->GetStringUTFChars(env,jstr,NULL);
+
     //5、用 c 语言修改值
     char *c = "wtf" ;
     strcat(c_char,c);//需要引入 string.h 头文件
+
     //6、将 c 语言的字符串转换成 jin 认识的字符串
     jstring jstrBack = (*env)->NewStringUTF(env,c_char);
+
     //7、将转换好的字符串赋值回从java端来的 jobject
     (*env)->SetObjectField(env,jobj,jfid,jstrBack);
+
     //8、释放指针
     (*env)->ReleaseStringChars(env,jstrBack,c_char);
 
