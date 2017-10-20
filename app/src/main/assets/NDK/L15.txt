@@ -4,6 +4,7 @@
 
 shell 脚本 （.sh 文件）解释型语言
 
+
 shell命令
 
   新建一个 .sh 文件 ：touch xx.sh 
@@ -111,6 +112,40 @@ while循环
 
 查找文件
   grep -n bin xxx文件
+
+
+
+
+热修复
+
+	1、随时在后台修改bug
+	2、在线更新某些功能
+
+
+
+thinker 热修复
+
+	dex 加载顺序修复bug 小bug 也需要下载大文件
+
+andfix 热修复
+
+	太依赖于底层代码
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

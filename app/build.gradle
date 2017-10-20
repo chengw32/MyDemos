@@ -16,10 +16,16 @@ android {
                 cppFlags "-frtti -fexceptions"
             }
             ndk {
-                abiFilters "armeabi","x86"
+                abiFilters "armeabi", "x86"
             }
         }
     }
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.test.custom.mydemos">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".application.MyApp"
         android:allowBackup="true"
@@ -52,29 +55,15 @@
         </activity>
         <activity android:name=".Ui.L20.L20">
         </activity>
-        <activity android:name=".Kotlin.Kotlin">
-        </activity>
-        <activity android:name=".Kotlin.L1.L1">
-        </activity>
-        <activity android:name=".Kotlin.L1.KotlinTest">
-        </activity>
-        <activity android:name=".NDK.L1.L1">
-        </activity>
         <activity android:name=".NDK.NDK">
-        </activity>
-        <activity android:name=".NDK.L2.L2">
-        </activity>
-        <activity android:name=".NDK.L3.L3">
-        </activity>
-        <activity android:name=".NDK.L4.L4">
-        </activity>
-        <activity android:name=".NDK.L5.L5">
         </activity>
         <activity android:name=".NDK.L6.L6">
         </activity>
         <activity android:name=".NDK.L10.L10">
         </activity>
         <activity android:name=".NDK.L12.L12">
+        </activity>
+        <activity android:name=".NDK.L16.L16">
         </activity>
     </application>
 

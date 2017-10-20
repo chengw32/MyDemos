@@ -18,7 +18,20 @@ add_library( # Sets the name of the library.
 
              # Provides a relative path to your source file(s).
              src/main/cpp/native-lib.c
+             src/main/cpp/soplug/soplug_lib.c
+             src/main/cpp/soplug/mysoplug.c
              )
+add_library( # Sets the name of the library.
+             sotest
+
+             # Sets the library as a shared library.
+             SHARED
+
+             # Provides a relative path to your source file(s).
+             src/main/cpp/soplug/soplug_lib.c
+             )
+
+
 file(GLOB zip_path src/main/cpp/bzip/*.c)
 add_library( # Sets the name of the library.
              bzip

@@ -5,6 +5,7 @@
 #include <android/log.h>
 #include <stdlib.h>
 #include <unwind.h>
+#include <dlfcn.h>
 
 #define TAG "native-lib.c"
 #define loge(...) __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
@@ -12,7 +13,6 @@
 // jni访问java的成员变量
 JNIEXPORT jstring JNICALL Java_com_test_custom_mydemos_NDK_L6_L6_testC
         (JNIEnv * env, jobject jobj){
-
     //1、从 jobject 获取 jclass
     jclass clz = (*env)->GetObjectClass(env,jobj);
     //2、从 jclass 获取 变量的id ,第三个参数是变量名，第四个参数是类型签名

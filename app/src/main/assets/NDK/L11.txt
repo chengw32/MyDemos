@@ -8,3 +8,20 @@
 
 
 
+差分包的生成调用的是 bsdiff.c 的main方法 合成是调用 bspatch.c 的main方法
+
+
+Linux系统生成差分包
+
+	1、拷贝全部的 c 文件到Linux系统下
+
+	2、生成 Linux 可执行文件 命令 gcc -fPIC blocksort.c bsdiff.c bzlib.c compress.c crctable.c decompress.c huffman.c randtable.c -o testDiff
+	3、执行可执行文件生成差分包 ./testDiff apkOld.apk apkNew.apk test.patch
+
+
+
+
+项目里面合成新版apk
+
+	1、拷贝全部的 c 文件到项目
+	2、写 native 方法。在 bspatch.c 实现 native 方法并调用 main 方法。

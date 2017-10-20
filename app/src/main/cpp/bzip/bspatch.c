@@ -211,6 +211,25 @@ int main(int argc,char * argv[])
 
 JNIEXPORT jint JNICALL Java_com_test_custom_mydemos_NDK_L12_Zip_zip
         (JNIEnv * env, jobject jobje,jstring oldFile,jstring newFile,jstring diffile){
-    loge("diaoyong");
-    return  0 ;
+    loge("开始压缩");
+
+    char * oldPath = (*env)->GetStringUTFChars(env,oldFile,JNI_FALSE);
+    char * newPath = (*env)->GetStringUTFChars(env,newFile,JNI_FALSE);
+    char * difPath = (*env)->GetStringUTFChars(env,diffile,JNI_FALSE);
+
+    int argc = 4 ;
+    char *argv[4] ;
+    argv[0] = "diffile";
+    argv[1]= oldPath;
+    argv[2]= newPath;
+    argv[3]= difPath;
+
+    int iscomplete = -1 ;
+
+    iscomplete = main(argc,argv);
+
+    (*env)->ReleaseStringChars(env,oldFile,oldPath);
+    (*env)->ReleaseStringChars(env,newFile,newPath);
+    (*env)->ReleaseStringChars(env,diffile,difPath);
+    return  iscomplete ;
 }

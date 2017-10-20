@@ -65,7 +65,7 @@
         <item>L11--增量更新流程\n——</item>
         <item>L12--增量更新\n——在Linux下生产差分包\n——合并差分包生成新的apk\n——cmakelist添加整个目录下的c文件为库</item>
         <item>L15--阿里云服务器配置\n——shell脚本语句</item>
-        <item>L16--so插件化</item>
+        <item>L16--so插件化\n——Linux下生成so\n——</item>
 
     </array>
 
