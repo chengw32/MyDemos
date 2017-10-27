@@ -41,6 +41,7 @@ JNIEXPORT jint JNICALL Java_com_test_custom_mydemos_NDK_L16_L16_getSoPlugIntValu
     Add add = NULL ;
     *(void **)(&add) = dlsym(handle,"add");
 
+//    dlclose(handle);
     return add(a,b);
 }
 

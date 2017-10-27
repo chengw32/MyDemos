@@ -29,11 +29,11 @@ public class L16 extends BaseActivity {
         LogUtil.e("distFile  "+distFile.getAbsolutePath());
 //        String path = Environment.getRootDirectory().toString();
 //        copyFileFromAssets(this, "sotest.so", distFile.getAbsolutePath());
-        String dataDir = "/data/user/0/com.test.custom.mydemos/lib/sotest.so";
-        copyFileFromAssets(this, "sotest.so", dataDir);
-        LogUtil.e("dataDir  "+dataDir);
+//        String dataDir = "/data/user/0/com.test.custom.mydemos/lib/sotest.so";
+//        copyFileFromAssets(this, "sotest.so", dataDir);
         TextView viewById = (TextView) findViewById(R.id.test);
-        viewById.setText("拼接字符串 wt f :  "+getSoPlugStrValue("wt","f")+"\n"+"从 so 获取的 5+9 的值 : "+getSoPlugIntValue(5,9));
+        viewById.setText("从 so 获取的 5+9 的值 : "+getSoPlugIntValue(5,9));
+//        viewById.setText("拼接字符串 wt f :  "+getSoPlugStrValue("wt","f")+"\n"+"从 so 获取的 5+9 的值 : "+getSoPlugIntValue(5,9));
 
     }
 
