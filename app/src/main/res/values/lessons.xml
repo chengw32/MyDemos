@@ -51,7 +51,7 @@
 
     </array>
     <array name="ndk">
-        <item>L0--abd环境配置\n——</item>
+        <item>L0--adb环境配置\n——</item>
         <item>L1--c语言基本知识</item>
         <item>L2--指针定义\n——指针运算\n——数组指针\n——指针类型</item>
         <item>L3--字符串使用\n——函数指针\n——内存分配malloc</item>
@@ -67,6 +67,7 @@
         <item>L13--c++基础\n——查看app的 native 和 dalvik 的堆空间的分配（shell 命令）\n——强引用/弱引用/虚引用\n——拷贝构造函数</item>
         <item>L15--阿里云服务器配置\n——shell脚本语句\n——davlik/ART/JVM虚拟机的区别\n——热修复</item>
         <item>L16--so插件化\n——Linux下生成so\n——代码在内存中的运行流程\n——</item>
+        <item>L17--手机开机过程zygot进程 </item>
 
     </array>
 

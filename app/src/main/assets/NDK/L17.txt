@@ -1,0 +1,27 @@
+
+
+zygot进程
+
+
+
+jvm art dalvik
+
+
+jvm
+
+版权问题
+以字节码
+堆栈
+
+
+4.4-5.0  dalvik跟art 切换
+
+
+dalvik
+dalvik加载的是 odex 文件 是 dex 经过优化的文件
+兼容 jvm 
+即时编译 jit 将字节码转换成机器码 发生在运行时
+
+art
+将 dex 通过系统自带的工具 dex2oat 转换成 oat文件 oat文件即机器码文件
+
