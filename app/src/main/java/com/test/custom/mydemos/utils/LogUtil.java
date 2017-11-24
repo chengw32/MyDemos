@@ -9,7 +9,7 @@ import android.util.Log;
  */
 
 public class LogUtil {
-    public static void e(String msg){
-        Log.e("MyDemos",msg);
+    public static void e(Object msg){
+        Log.e("MyDemos",String.valueOf(msg));
     }
 }

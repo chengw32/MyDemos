@@ -10,4 +10,5 @@ public class ErrorActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_error);
     }
+
 }

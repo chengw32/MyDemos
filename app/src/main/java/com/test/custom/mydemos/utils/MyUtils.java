@@ -23,4 +23,13 @@ public class MyUtils {
             return new String(ch);
     }
 
+    public static String appendStr(Object... str){
+        StringBuffer sb = new StringBuffer();
+        for (Object item:str){
+            sb.append(item);
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+
 }

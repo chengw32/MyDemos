@@ -45,6 +45,7 @@ public class WaveView extends View {
 
 
     public WaveView(Context context) {
+
         this(context,null);
     }
 

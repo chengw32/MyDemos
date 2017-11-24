@@ -1,0 +1,17 @@
+
+
+
+//扩展方法 inline 在 String 上扩展一个点show 方法 在任意 String 类型上面都可与调用 如 "xxx".show() 
+fun Context.toast(message:CharSequence)= Toast.makeText(this,message, Toast.LENGTH_LONG).show() 
+inline fun String.show(){}
+
+
+//扩展属性
+var TextView.leftMargin:Int
+    get():Int {
+        return (layoutParams as ViewGroup.MarginLayoutParams).leftMargin
+    }
+    set(value) {
+        (layoutParams as ViewGroup.MarginLayoutParams).leftMargin=value
+    }
+

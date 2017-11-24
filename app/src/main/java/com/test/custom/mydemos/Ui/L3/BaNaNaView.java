@@ -37,7 +37,6 @@ public class BaNaNaView extends View {
 
     public BaNaNaView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
         setLayerType(LAYER_TYPE_SOFTWARE,null);
         mPath = new Path();
         bodyRect = new RectF();

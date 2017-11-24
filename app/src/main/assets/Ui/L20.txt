@@ -3,7 +3,7 @@
 
 1、***********
 
-viewPager 翻转设置 PageTransformer
+viewPager.setPageTransformer
 
 PageTransformer 里重写 transformPage 方法。该方法返回 ViewPager 的整个 View 与 position。
 关于 Position：返回的是 ViewPager 当前屏跟左右两屏的移动百分比

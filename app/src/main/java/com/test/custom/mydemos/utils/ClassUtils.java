@@ -11,7 +11,6 @@ import com.test.custom.mydemos.ErrorActivity;
 public class ClassUtils {
 
     public static Class getLocalClass (String cla){
-
         Class tt = null;
         try {
             tt = Class.forName(cla);

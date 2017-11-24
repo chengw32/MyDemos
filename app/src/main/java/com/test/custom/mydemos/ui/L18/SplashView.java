@@ -42,6 +42,7 @@ public class SplashView extends View {
     private float emptyDegree = 0 ; // 颜色间隔角度
 
     public SplashView(Context context) {
+
         this(context,null);
     }
 
